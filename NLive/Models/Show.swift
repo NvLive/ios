@@ -7,12 +7,35 @@
 //
 
 import Foundation
-import Realm
+import RealmSwift
 
-class Show: Object {
+class ShowStore: Object {
+    dynamic var id: Int = 0
     dynamic var title: String = ""
-    dynamic var descr: String
-    dynamic var imgURL: URL
-    dynamic var schedule: String
-    dynamic var broadcasts: [Broadcast]
+    dynamic var descriptionString: String? = nil
+    dynamic var placeholderImageUrlString: String? = nil
+//    dynamic var schedule: String
+    let broadcasts = List<BroadcastStore>()
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+    
+//    override static func ignoredProperties() -> [String] {
+//        return []
+//    }
 }
+
+extension ShowStore {
+    
+    convenience init(withDTO data: ShowDTO.Entity) {
+        self.init()
+        
+        id = data.id
+        title = data.title
+        descriptionString = data.description
+        placeholderImageUrlString = data.placeholderImageUrl?.absoluteString
+        broadcasts.append(objectsIn: data.broadcasts.map { BroadcastStore(withDTO: $0) })
+    }
+}
+

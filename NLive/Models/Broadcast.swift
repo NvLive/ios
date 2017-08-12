@@ -7,18 +7,46 @@
 //
 
 import Foundation
-import Realm
+import RealmSwift
 
-class Broadcast: Object {
-    dynamic var startTime: Date
-    dynamic var endTime: Date?
-    dynamic var title: String
-    dynamic var descr: String?
-    dynamic var imgURL: URL?
-    dynamic var text: String?
-    dynamic var contents: String?
-    dynamic var youtubeURL: URL?
-    dynamic var streamURL: URL
-    dynamic var isLive: Bool
-    dynamic var isFeatured: Bool
+class BroadcastStore: Object {
+    dynamic var id: Int = 0
+    dynamic var title: String = ""
+    dynamic var descriptionString: String? = nil
+    dynamic var placeholderImageUrlString: String? = nil
+    dynamic var startDate: Date = Date()
+    dynamic var endDate: Date? = nil
+    dynamic var transcript: String? = nil
+    dynamic var contents: String? = nil
+    dynamic var streamUrlString: String = ""
+    dynamic var localPathString: String? = nil
+    dynamic var youtubeUrlString: String? = nil
+    dynamic var isLive: Bool = false
+    dynamic var isFeatured: Bool = false
+    
+    let show = LinkingObjects(fromType: ShowStore.self, property: "broadcasts")
+    
+    override static func primaryKey() -> String? {
+        return "id"
+    }
+}
+
+extension BroadcastStore {
+    
+    convenience init(withDTO data: BroadcastDTO.Entity) {
+        self.init()
+        
+        id = data.id
+        title = data.title
+        descriptionString = data.description
+        placeholderImageUrlString = data.placeholderImageUrl?.absoluteString
+        startDate = data.startDate
+        endDate = data.endDate
+        transcript = data.transcript
+        contents = data.contents
+        youtubeUrlString = data.youtubeUrl?.absoluteString
+        streamUrlString = data.streamUrl.absoluteString
+        isLive = data.isLive
+        isFeatured = data.isFeatured
+    }
 }

@@ -7,15 +7,46 @@
 //
 
 import UIKit
+import ReSwift
+import StatusBarNotificationCenter
+
+#if DEBUG
+let App_Debug:Bool = true
+#else
+let App_Debug:Bool = true
+#endif
+
+// Initializing ReSwift
+let store = Store<AppState>(
+    reducer: appReducer,
+    state: AppState()
+)
+
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
-
+    
     var window: UIWindow?
+    
+    var router: AppRouter?
+    var reachabilityService: ReachabilityService?
+}
 
+extension AppDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplicationLaunchOptionsKey: Any]?) -> Bool {
-        // Override point for customization after application launch.
+        
+        window = UIWindow(frame: UIScreen.main.bounds)
+        window?.makeKeyAndVisible()
+        
+        // Starting a router
+        router = AppRouter()
+        store.dispatch(RouterAction.loadDefaultSequence)
+        
+        // Starting Reachability Service
+        // for network availability monitoring
+        reachabilityService = ReachabilityService(withBaseWindow: window!)
+        
         return true
     }
 
@@ -40,7 +71,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillTerminate(_ application: UIApplication) {
         // Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
     }
+}
 
 
+extension AppDelegate {
+    
+    internal func setRootViewController(_ rootViewController:UIViewController, animated:Bool) {
+        if let window = self.window {
+            window.rootViewController = rootViewController
+            window.makeKeyAndVisible()
+        }
+    }
 }
 
