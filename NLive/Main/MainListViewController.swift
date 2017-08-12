@@ -11,6 +11,8 @@ import UIKit
 class MainListViewController: UIViewController {
 
     @IBOutlet weak var promoBroadcastView: UIImageView!
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     @IBOutlet weak var lastBroadcastsCollection: UICollectionView!
     @IBOutlet weak var allShowsCollection: UICollectionView!
     
@@ -21,6 +23,7 @@ class MainListViewController: UIViewController {
         super.viewDidLoad()
         lastBroadcastDataSource.collectionView = lastBroadcastsCollection
         allShowsDataSource.collectionView = allShowsCollection
+        scrollView.contentInset.bottom = 44
     }
     
     

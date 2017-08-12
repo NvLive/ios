@@ -7,6 +7,7 @@
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -172,11 +173,23 @@
                                     <constraint firstItem="tPA-9L-iXd" firstAttribute="top" secondItem="WzD-ib-H8P" secondAttribute="top" id="w1a-7r-eSw"/>
                                 </constraints>
                             </scrollView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XQ7-wQ-6RL">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="DWU-vl-Tx5"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="xna-gA-5me" kind="embed" id="C1M-VQ-eCN"/>
+                                </connections>
+                            </containerView>
                         </subviews>
                         <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="XQ7-wQ-6RL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="35M-hN-ev5"/>
+                            <constraint firstAttribute="trailing" secondItem="XQ7-wQ-6RL" secondAttribute="trailing" id="6n2-ii-Cqf"/>
                             <constraint firstItem="WzD-ib-H8P" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="8" id="C3b-ll-GhM"/>
                             <constraint firstAttribute="bottom" secondItem="WzD-ib-H8P" secondAttribute="bottom" constant="8" id="Cpq-Zn-Lar"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="XQ7-wQ-6RL" secondAttribute="bottom" id="Qht-Ls-yYc"/>
                             <constraint firstItem="WzD-ib-H8P" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Y4J-bY-5Lc"/>
                             <constraint firstAttribute="trailing" secondItem="WzD-ib-H8P" secondAttribute="trailing" id="x7J-Fu-8Io"/>
                         </constraints>
@@ -186,6 +199,7 @@
                         <outlet property="allShowsDataSource" destination="bWw-Ig-Vsx" id="UUc-ic-b9q"/>
                         <outlet property="lastBroadcastDataSource" destination="jne-bQ-4IK" id="xJg-UU-oSY"/>
                         <outlet property="lastBroadcastsCollection" destination="IIu-hc-6x8" id="nzG-e3-DcQ"/>
+                        <outlet property="scrollView" destination="WzD-ib-H8P" id="CmZ-oR-353"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -197,6 +211,35 @@
                 </customObject>
             </objects>
             <point key="canvasLocation" x="32.799999999999997" y="71.514242878560722"/>
+        </scene>
+        <!--Stream View Controller-->
+        <scene sceneID="fzo-Pj-qGm">
+            <objects>
+                <viewController id="xna-gA-5me" customClass="StreamViewController" customModule="NLive" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="yfJ-PY-dJs">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="chw-4r-gmi">
+                                <rect key="frame" x="16" y="7" width="30" height="30"/>
+                                <state key="normal" title="Play"/>
+                                <connections>
+                                    <action selector="playPausePresed" destination="xna-gA-5me" eventType="touchUpInside" id="WRb-5A-Ud9"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="chw-4r-gmi" firstAttribute="centerY" secondItem="yfJ-PY-dJs" secondAttribute="centerY" id="34G-8Q-MbN"/>
+                            <constraint firstItem="chw-4r-gmi" firstAttribute="leading" secondItem="yfJ-PY-dJs" secondAttribute="leadingMargin" id="Gha-ph-ZoT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="playPause" destination="chw-4r-gmi" id="87K-Uc-VSt"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Pja-dm-oJb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
         </scene>
     </scenes>
     <resources>

@@ -10,6 +10,7 @@ target 'NLive' do
   pod 'Realm'
   pod 'RxSwift'
   pod 'Decodable'
+  pod 'MobileVLCKit-unstable', '~> 3.0.0a32'
   
   target 'NLiveTests' do
     inherit! :search_paths
