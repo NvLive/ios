@@ -33,9 +33,9 @@ class StreamViewController: UIViewController {
 extension StreamViewController: VLCMediaPlayerDelegate {
     func mediaPlayerStateChanged(_ aNotification: Notification!) {
         switch vlcPlayer.state {
-        case .opening:
+        case .opening,.buffering:
              playPause?.setTitle("Loading" , for: .normal)
-        case .playing,.buffering:
+        case .playing:
             playPause?.setTitle("Pause" , for: .normal)
         default:
             playPause?.setTitle("Play", for: .normal)
