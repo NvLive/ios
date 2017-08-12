@@ -8,7 +8,7 @@
 
 import Moya
 import Decodable
-
+import protocol Decodable.Decodable
 // Structures
 
 enum NetworkError: Swift.Error {

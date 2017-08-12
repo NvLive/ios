@@ -5,7 +5,7 @@
 //
 
 import Moya
-import Decodable
+import protocol Decodable.Decodable
 
 public extension Response {
     
