@@ -108,7 +108,7 @@ extension AppDelegate {
     fileprivate func configureStyle() {
         
         UINavigationBar.appearance().tintColor = Color.Navigation.tinted.tint
-        UINavigationBar.appearance().backgroundColor = Color.Navigation.tinted.background
+//        UINavigationBar.appearance().backgroundColor = Color.Navigation.tinted.background
 
 //        UINavigationBar.appearance().setBackgroundImage(UIImage.from(color: Color.Navigation.tinted.background), for: .default)
 //        UINavigationBar.appearance().setBackgroundImage(UIImage(named: "navbar_bg")!.resizableImage(withCapInsets: UIEdgeInsets(top: 180-44/2, left: 240-375/2, bottom: 0, right: 0)), for: .default)
@@ -125,11 +125,11 @@ extension AppDelegate {
             NSFontAttributeName: Font.largeMedium
         ]
 
-        UINavigationBar.appearance().backIndicatorImage = UIImage(named: "navbar_back")
-        UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage(named: "navbar_back")
-        
-        UINavigationBar.appearance().backIndicatorImage = UIImage(named: "back-button-opposite")
-        UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage(named: "back-button-opposite")
+//        UINavigationBar.appearance().backIndicatorImage = UIImage(named: "navbar_back")
+//        UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage(named: "navbar_back")
+//        
+//        UINavigationBar.appearance().backIndicatorImage = UIImage(named: "back-button-opposite")
+//        UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage(named: "back-button-opposite")
     }
 }
 

@@ -13,8 +13,8 @@ import RealmSwift
 import Nuke
 
 
-protocol AllShowsDelegate {
-    
+protocol AllShowsDelegate: class {
+    func navigateTo(show: ShowStore)
 }
 
 class AllShowsDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDelegate {
@@ -26,6 +26,8 @@ class AllShowsDataSource: NSObject, UICollectionViewDataSource, UICollectionView
             subcription.select { state in state.dashboardState.shows }
         }
     }
+    
+    weak var delegate: AllShowsDelegate? = nil
     
     var elementsToDisplay: Results<ShowStore>? = nil
     
@@ -66,6 +68,12 @@ class AllShowsDataSource: NSObject, UICollectionViewDataSource, UICollectionView
         }
         
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let show = elementsToDisplay?[indexPath.item] {
+            delegate?.navigateTo(show: show)
+        }
     }
 }
 

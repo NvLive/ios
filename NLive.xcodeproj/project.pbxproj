@@ -75,6 +75,8 @@
 		D0B257F31F40076A003EEC2F /* OpenSans-Semibold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0B257E91F40076A003EEC2F /* OpenSans-Semibold.ttf */; };
 		D0B257F41F40076A003EEC2F /* OpenSans-SemiboldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = D0B257EA1F40076A003EEC2F /* OpenSans-SemiboldItalic.ttf */; };
 		D0B257F61F400D91003EEC2F /* StreamState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B257F51F400D91003EEC2F /* StreamState.swift */; };
+		D0B257F91F401628003EEC2F /* BroadcastViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B257F81F401628003EEC2F /* BroadcastViewController.swift */; };
+		D0B257FC1F402102003EEC2F /* ShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B257FB1F402102003EEC2F /* ShowViewController.swift */; };
 		F214E70C820C4DA76E65DDB6 /* Pods_NLiveTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50C76E2DEA12F88CAD49AD6B /* Pods_NLiveTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -189,6 +191,8 @@
 		D0B257E91F40076A003EEC2F /* OpenSans-Semibold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Semibold.ttf"; path = "Fonts/OpenSans-Semibold.ttf"; sourceTree = "<group>"; };
 		D0B257EA1F40076A003EEC2F /* OpenSans-SemiboldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-SemiboldItalic.ttf"; path = "Fonts/OpenSans-SemiboldItalic.ttf"; sourceTree = "<group>"; };
 		D0B257F51F400D91003EEC2F /* StreamState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamState.swift; sourceTree = "<group>"; };
+		D0B257F81F401628003EEC2F /* BroadcastViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = BroadcastViewController.swift; path = NLive/Detail/BroadcastViewController.swift; sourceTree = SOURCE_ROOT; };
+		D0B257FB1F402102003EEC2F /* ShowViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = ShowViewController.swift; path = NLive/Detail/ShowViewController.swift; sourceTree = SOURCE_ROOT; };
 		DB8C95817FDA64BE4BE42B92 /* Pods_NLiveUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NLiveUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0473BFFA3ACC531DC6383FF /* Pods-NLive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NLive.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NLive/Pods-NLive.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -325,6 +329,8 @@
 				D0B257BB1F3FB88D003EEC2F /* Dashboard */,
 				44B8F70C1F3F4EEF00729CA4 /* Last Broadcasts */,
 				44B8F70A1F3F4EDD00729CA4 /* AllShows */,
+				D0B257F71F4015D1003EEC2F /* Broadcast */,
+				D0B257FA1F4020E6003EEC2F /* Show */,
 				4427B3E11F3F0A0A00774D0C /* Main.storyboard */,
 			);
 			path = Main;
@@ -446,6 +452,22 @@
 				D0B257EA1F40076A003EEC2F /* OpenSans-SemiboldItalic.ttf */,
 			);
 			name = Fonts;
+			sourceTree = "<group>";
+		};
+		D0B257F71F4015D1003EEC2F /* Broadcast */ = {
+			isa = PBXGroup;
+			children = (
+				D0B257F81F401628003EEC2F /* BroadcastViewController.swift */,
+			);
+			name = Broadcast;
+			sourceTree = "<group>";
+		};
+		D0B257FA1F4020E6003EEC2F /* Show */ = {
+			isa = PBXGroup;
+			children = (
+				D0B257FB1F402102003EEC2F /* ShowViewController.swift */,
+			);
+			name = Show;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -801,10 +823,12 @@
 				44DC17741F3FD9DD00C6B967 /* MainViewController.swift in Sources */,
 				D090D6141F3FA11F0007BDEC /* NetworkEntities.swift in Sources */,
 				D0B257CB1F4005D2003EEC2F /* UIFont+extension.swift in Sources */,
+				D0B257F91F401628003EEC2F /* BroadcastViewController.swift in Sources */,
 				D090D6291F3FA3350007BDEC /* String+extension.swift in Sources */,
 				D05B4E141F3F990100345D7D /* Reachability.swift in Sources */,
 				D090D62B1F3FA3350007BDEC /* UIImage+extension.swift in Sources */,
 				D05B4E1C1F3F9A6B00345D7D /* Router.swift in Sources */,
+				D0B257FC1F402102003EEC2F /* ShowViewController.swift in Sources */,
 				D090D62D1F3FA3350007BDEC /* UIView+extension.swift in Sources */,
 				D05B4E211F3F9E9200345D7D /* BroadcastNetworkService.swift in Sources */,
 				D090D6241F3FA3350007BDEC /* MVP.swift in Sources */,

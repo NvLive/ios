@@ -13,8 +13,8 @@ import RealmSwift
 import Nuke
 import Timepiece
 
-protocol LastBroadcastsDelegate {
-    
+protocol LastBroadcastsDelegate: class {
+    func navigateTo(broadcast: BroadcastStore)
 }
 
 class LastBroadcastsDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDelegate {
@@ -27,8 +27,9 @@ class LastBroadcastsDataSource: NSObject, UICollectionViewDataSource, UICollecti
         }
     }
     
+    weak var delegate: LastBroadcastsDelegate? = nil
+    
     var elementsToDisplay: Results<BroadcastStore>? = nil
-
     
     weak var collectionView: UICollectionView? = nil {
         didSet{
@@ -120,6 +121,12 @@ class LastBroadcastsDataSource: NSObject, UICollectionViewDataSource, UICollecti
         
         let point = CGPoint (x: CGFloat(newPage * pageWidth), y: targetContentOffset.pointee.y)
         targetContentOffset.pointee = point
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let broadcast = elementsToDisplay?[indexPath.item] {
+            delegate?.navigateTo(broadcast: broadcast)
+        }
     }
     
 }
