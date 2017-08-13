@@ -16,6 +16,7 @@ class BroadcastViewController: UIViewController {
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var contentsTitle: UILabel!
+    @IBOutlet weak var playImageView: UIImageView!
     
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -25,6 +26,8 @@ class BroadcastViewController: UIViewController {
         if let broadcast = broadcast {
             configure(withBroadcast: broadcast)
         }
+        
+        playImageView.image = playImageView.image?.tintWithColor(color: Color.Base.danger)
         
         scrollView.contentInset.bottom = 60
     }

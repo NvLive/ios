@@ -14,7 +14,6 @@ import MediaPlayer
 import Nuke
 
 class StreamViewController: UIViewController {
-    @IBOutlet weak var fadeView: UIView!
     @IBOutlet weak var smallView: UIView!
     @IBOutlet weak var volumeView: MPVolumeView!
     
@@ -23,7 +22,9 @@ class StreamViewController: UIViewController {
     @IBOutlet weak var broadcastImage: UIImageView!
     @IBOutlet weak var boradcastTitle: UILabel!
     @IBOutlet weak var playPause: UIButton? = nil
-    @IBOutlet weak var panGesture: UIPanGestureRecognizer!
+    @IBOutlet var panGesture: UIPanGestureRecognizer!
+    @IBOutlet var tapGesture: UITapGestureRecognizer!
+    
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var detailBroadcastImage: UIImageView!
@@ -90,18 +91,18 @@ class StreamViewController: UIViewController {
             switch(self.musicBoxState) {
             case .mini:
                 self.mainViewController?.streamHeightConstraint.constant = self.miniStateSize
-                self.fadeView.alpha = 0
-                self.smallView.alpha = 1
+                self.mainViewController?.fadeView.alpha = 0
+//                self.smallView.alpha = 1
                 self.mainViewController?.streamBottomConstraint.constant = 0
             case .full:
-                self.mainViewController?.streamHeightConstraint.constant = UIScreen.main.bounds.height
-                self.fadeView.alpha = 1
-                self.smallView.alpha = 0
+                self.mainViewController?.streamHeightConstraint.constant = UIScreen.main.bounds.height - 64
+                self.mainViewController?.fadeView.alpha = 1
+//                self.smallView.alpha = 0
                 self.mainViewController?.streamBottomConstraint.constant = 0
             case .none:
                 self.mainViewController?.streamHeightConstraint.constant = self.miniStateSize
-                self.fadeView.alpha = 0
-                self.smallView.alpha = 1
+                self.mainViewController?.fadeView.alpha = 0
+//                self.smallView.alpha = 1
                 self.mainViewController?.streamBottomConstraint.constant = -self.miniStateSize
             }
             self.mainViewController?.view.layoutIfNeeded()
@@ -149,12 +150,17 @@ class StreamViewController: UIViewController {
         }
         
         changeMusicBoxState(to: activeBroadcast != nil ? .mini : .none, animated: false)
+        
+        self.mainViewController?.fadeView.addGestureRecognizer(panGesture)
+        self.mainViewController?.fadeView.addGestureRecognizer(tapGesture)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         store.unsubscribe(self)
+        self.mainViewController?.fadeView.removeGestureRecognizer(panGesture)
+        self.mainViewController?.fadeView.removeGestureRecognizer(tapGesture)
     }
     
     

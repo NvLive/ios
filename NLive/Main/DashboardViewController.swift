@@ -24,6 +24,9 @@ class DashboardViewController: UIViewController {
     @IBOutlet weak var promoCreateTimeLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     
+    @IBOutlet weak var promoPlayImageView: UIImageView!
+    
+    
     @IBOutlet weak var lastBroadcastsCollection: UICollectionView!
     @IBOutlet weak var allShowsCollection: UICollectionView!
     
@@ -80,6 +83,8 @@ class DashboardViewController: UIViewController {
         store.subscribe(self) { subcription in
             subcription.select { state in state.dashboardState.featuredBroadcasts }
         }
+        
+        promoPlayImageView.image = promoPlayImageView.image?.tintWithColor(color: Color.Base.danger)
         
         dispatcher.fetchShows()
         dispatcher.fetchCurrent()

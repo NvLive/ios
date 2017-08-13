@@ -13,6 +13,8 @@ class MainViewController: UIViewController {
     
     @IBOutlet weak var streamBottomConstraint: NSLayoutConstraint!
     
+    @IBOutlet weak var fadeView: UIView!
+    
     override open var childViewControllerForStatusBarStyle: UIViewController? {
         return self.childViewControllers.filter { $0 is UINavigationController }.first
     }
