@@ -32,6 +32,7 @@ class StreamViewController: UIViewController {
     @IBOutlet weak var detailShowTitle: UILabel!
     @IBOutlet weak var detailBroadcastTitle: UILabel!
     @IBOutlet weak var detailBroadcastDescr: UILabel!
+    @IBOutlet weak var detailBroadcastContents: UILabel!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var leftTime: UILabel!
     @IBOutlet weak var rightTime: UILabel!
@@ -57,6 +58,7 @@ class StreamViewController: UIViewController {
             boradcastTitle.text = activeBroadcast?.title ?? ""
             detailBroadcastTitle.text = activeBroadcast?.title ?? ""
             detailBroadcastDescr.text = activeBroadcast?.descriptionString ?? ""
+            detailBroadcastContents.text = activeBroadcast?.contents ?? ""
             detailShowTitle.text = activeBroadcast?.show.first?.title ?? ""
             
             if let streamUrlString = activeBroadcast?.streamUrlString,

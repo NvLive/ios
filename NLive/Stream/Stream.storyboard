@@ -34,7 +34,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uKm-3b-7Po">
-                                                <rect key="frame" x="0.0" y="0.0" width="375" height="1089.5"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="375" height="439"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="6me-zF-wKI">
                                                         <rect key="frame" x="24" y="24" width="327" height="184"/>
@@ -51,31 +51,6 @@
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Гость — стендап-комик Денис Чужой" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OLX-bs-6MD">
                                                         <rect key="frame" x="24" y="294" width="327" height="20"/>
                                                         <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8J-cF-DnB">
-                                                        <rect key="frame" x="24" y="330" width="327" height="735.5"/>
-                                                        <accessibility key="accessibilityConfiguration">
-                                                            <accessibilityTraits key="traits" link="YES" staticText="YES"/>
-                                                        </accessibility>
-                                                        <string key="text">0:20 О конкурсе ведущих на канале Навальный LIVE. Подробнее: https://navalny.com/p/5485
-0:58 Денис Чужой — о своем YouTube-канале и проекте «Класс народа». Ссылка на канал: https://www.youtube.com/channel/UCCzV...
-4:10 Воспользоваться порталом «Госуслуги» можно будет через «Одноклассники». Подробнее: https://www.kommersant.ru/doc/3379508
-9:40 Казаки попросили денег на спектакль о превращении Дарта Вейдера в казака. Подробнее: https://lenta.ru/news/2017/08/09/oooh...
-12:10 Денис Чужой — о профессии сценариста.
-15:25 Глава института РАН предложил разрешить мертвым голосовать на выборах. Подробнее: http://www.mk.ru/politics/2016/05/20/...
-16:38 Тюменская школа запрещает девочкам ходить в брюках. Директор ссылается на «русский менталитет» и «передавливание половых органов». Подробнее: https://meduza.io/feature/2017/08/09/...
-19:22 ❓ Денис, когда выйдет твоя книга?
-23:40 Про кремлеботов и «безлайки».
-31:50 В Госдуму внесли законопроект о запрете вейпов и кальянов в общественных местах. Подробнее: https://www.gazeta.ru/social/2017/02/...
-35:40 Чиновники из Санкт-Петербурга объявили тендер на закупку «качественных» спиннеров.
-38:05 📞 Илья Яшин — о ходе кампании по выборам муниципальных депутатов в Москве.
-40:52 💬 Из-за дизлайков у вас канал скрыт из рекомендованных.
-41:44 Жителям красноярской деревни предложили бесплатные места на кладбище за согласие на его строительство. Подробнее: https://zona.media/news/2017/08/09/ce...
-45:30 Глава Общественной палаты считает, что журналисту НТВ следовало ответить напавшему хулигану.
-50:10 Об актуальной политической сатире.</string>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
@@ -103,37 +78,62 @@
                                                         </constraints>
                                                     </view>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="--:--" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Arn-52-A1g">
-                                                        <rect key="frame" x="322" y="213" width="29" height="16"/>
+                                                        <rect key="frame" x="322.5" y="213" width="28.5" height="16"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
                                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="0:00" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CvH-7M-30R">
-                                                        <rect key="frame" x="24" y="213" width="29" height="16"/>
+                                                        <rect key="frame" x="24" y="213" width="28.5" height="16"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="13"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
                                                     </label>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="xVx-mR-BAB">
+                                                        <rect key="frame" x="24" y="322" width="327" height="109"/>
+                                                        <subviews>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Описание" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f8J-cF-DnB">
+                                                                <rect key="frame" x="0.0" y="0.0" width="327" height="17"/>
+                                                                <accessibility key="accessibilityConfiguration">
+                                                                    <accessibilityTraits key="traits" link="YES" staticText="YES"/>
+                                                                </accessibility>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                            <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OmG-wD-oa4">
+                                                                <rect key="frame" x="0.0" y="25" width="327" height="84"/>
+                                                                <accessibility key="accessibilityConfiguration">
+                                                                    <accessibilityTraits key="traits" link="YES" staticText="YES"/>
+                                                                </accessibility>
+                                                                <string key="text">0:20 О конкурсе ведущих на канале Навальный LIVE. Подробнее: https://navalny.com/p/5485
+0:58 Денис Чужой — о своем YouTube-канале и проекте «Класс народа». Ссылка на канал: https://www.youtube.com/channel/UCCzV...</string>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                                <nil key="textColor"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                                 <constraints>
-                                                    <constraint firstItem="f8J-cF-DnB" firstAttribute="top" secondItem="OLX-bs-6MD" secondAttribute="bottom" constant="16" id="3w3-fV-eIy"/>
+                                                    <constraint firstItem="xVx-mR-BAB" firstAttribute="top" secondItem="OLX-bs-6MD" secondAttribute="bottom" constant="8" id="0B4-ip-7KT"/>
                                                     <constraint firstItem="KeT-X1-K9R" firstAttribute="top" secondItem="6me-zF-wKI" secondAttribute="bottom" constant="11" id="5Ny-L8-4cP"/>
                                                     <constraint firstItem="KeT-X1-K9R" firstAttribute="centerX" secondItem="uKm-3b-7Po" secondAttribute="centerX" id="7Wo-WE-dRQ"/>
                                                     <constraint firstItem="Arn-52-A1g" firstAttribute="trailing" secondItem="KeT-X1-K9R" secondAttribute="trailing" id="89j-67-deu"/>
                                                     <constraint firstItem="OLX-bs-6MD" firstAttribute="top" secondItem="dfq-7y-Xg2" secondAttribute="bottom" constant="8" id="9n6-cY-j21"/>
                                                     <constraint firstItem="CvH-7M-30R" firstAttribute="baseline" secondItem="Arn-52-A1g" secondAttribute="baseline" id="A1H-bI-CuO"/>
-                                                    <constraint firstAttribute="bottom" secondItem="f8J-cF-DnB" secondAttribute="bottom" constant="24" id="CPp-2G-ih9"/>
                                                     <constraint firstAttribute="trailing" secondItem="OLX-bs-6MD" secondAttribute="trailing" constant="24" id="D9b-ZG-C3H"/>
-                                                    <constraint firstAttribute="trailing" secondItem="f8J-cF-DnB" secondAttribute="trailing" constant="24" id="N6b-Os-tA4"/>
                                                     <constraint firstItem="OLX-bs-6MD" firstAttribute="leading" secondItem="uKm-3b-7Po" secondAttribute="leading" constant="24" id="U0i-YB-dhT"/>
                                                     <constraint firstItem="dfq-7y-Xg2" firstAttribute="centerX" secondItem="uKm-3b-7Po" secondAttribute="centerX" id="UJg-8f-a9y"/>
                                                     <constraint firstItem="KeT-X1-K9R" firstAttribute="leading" secondItem="CvH-7M-30R" secondAttribute="leading" id="XTr-6Y-WU5"/>
+                                                    <constraint firstItem="xVx-mR-BAB" firstAttribute="leading" secondItem="uKm-3b-7Po" secondAttribute="leading" constant="24" id="Xw5-HT-f5d"/>
+                                                    <constraint firstAttribute="trailing" secondItem="xVx-mR-BAB" secondAttribute="trailing" constant="24" id="Yjw-X1-u8U"/>
+                                                    <constraint firstAttribute="bottom" secondItem="xVx-mR-BAB" secondAttribute="bottom" constant="8" id="bZQ-lf-d9h"/>
                                                     <constraint firstItem="6me-zF-wKI" firstAttribute="centerX" secondItem="uKm-3b-7Po" secondAttribute="centerX" id="haX-3u-Cp8"/>
                                                     <constraint firstItem="6me-zF-wKI" firstAttribute="leading" secondItem="uKm-3b-7Po" secondAttribute="leading" constant="24" id="hwR-zM-qSV"/>
                                                     <constraint firstItem="dfq-7y-Xg2" firstAttribute="leading" secondItem="uKm-3b-7Po" secondAttribute="leading" constant="24" id="p7e-j6-159"/>
                                                     <constraint firstItem="KeT-X1-K9R" firstAttribute="top" secondItem="CvH-7M-30R" secondAttribute="bottom" constant="-10" id="rnH-aG-zmb"/>
-                                                    <constraint firstItem="f8J-cF-DnB" firstAttribute="leading" secondItem="uKm-3b-7Po" secondAttribute="leading" constant="24" id="vnW-94-4eW"/>
                                                     <constraint firstItem="KeT-X1-K9R" firstAttribute="width" secondItem="6me-zF-wKI" secondAttribute="width" id="xBE-3J-2Ng"/>
                                                     <constraint firstItem="6me-zF-wKI" firstAttribute="top" secondItem="uKm-3b-7Po" secondAttribute="top" constant="24" id="xF1-9U-VQp"/>
                                                     <constraint firstItem="dfq-7y-Xg2" firstAttribute="top" secondItem="KeT-X1-K9R" secondAttribute="bottom" constant="8" id="yjp-DU-a21"/>
@@ -270,6 +270,7 @@
                     <connections>
                         <outlet property="boradcastTitle" destination="nU5-SZ-rV3" id="xIv-R3-rwA"/>
                         <outlet property="broadcastImage" destination="kj5-Gk-idt" id="ubd-af-1Y2"/>
+                        <outlet property="detailBroadcastContents" destination="OmG-wD-oa4" id="9sC-v5-9d8"/>
                         <outlet property="detailBroadcastDescr" destination="f8J-cF-DnB" id="6Wc-W2-0g2"/>
                         <outlet property="detailBroadcastImage" destination="6me-zF-wKI" id="suE-FC-bd8"/>
                         <outlet property="detailBroadcastTitle" destination="OLX-bs-6MD" id="v39-5b-kW3"/>
