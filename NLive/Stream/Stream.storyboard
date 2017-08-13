@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -39,7 +39,7 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kov-dd-BXg">
                                 <rect key="frame" x="0.0" y="55" width="375" height="455"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Nn-mw-UwG">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" delaysContentTouches="NO" canCancelContentTouches="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Nn-mw-UwG" customClass="StreamScrollView" customModule="NLive" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="445"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uKm-3b-7Po">
@@ -228,7 +228,9 @@
                         <outlet property="boradcastTitle" destination="nU5-SZ-rV3" id="xIv-R3-rwA"/>
                         <outlet property="broadcastImage" destination="kj5-Gk-idt" id="ubd-af-1Y2"/>
                         <outlet property="fadeView" destination="DEN-Ux-3df" id="fxL-fx-eet"/>
+                        <outlet property="panGesture" destination="AZM-E3-HLA" id="msF-Yc-GaN"/>
                         <outlet property="playPause" destination="VHg-57-0My" id="atZ-cj-Ou6"/>
+                        <outlet property="scrollView" destination="3Nn-mw-UwG" id="lAv-Vf-QdM"/>
                         <outlet property="smallView" destination="66K-TF-EtD" id="YuQ-c0-ZEa"/>
                         <outlet property="volumeView" destination="QwT-AA-EPC" id="MCt-vb-Bp0"/>
                     </connections>
@@ -244,9 +246,10 @@
                         <action selector="fadePressWithGesture:" destination="Lax-mZ-pyT" id="Mwq-7b-eSW"/>
                     </connections>
                 </tapGestureRecognizer>
-                <panGestureRecognizer minimumNumberOfTouches="1" id="AZM-E3-HLA">
+                <panGestureRecognizer delaysTouchesBegan="YES" minimumNumberOfTouches="1" id="AZM-E3-HLA">
                     <connections>
                         <action selector="panHandlerWithGesture:" destination="Lax-mZ-pyT" id="WKG-eK-aPP"/>
+                        <outlet property="delegate" destination="Lax-mZ-pyT" id="ycN-zY-QFa"/>
                     </connections>
                 </panGestureRecognizer>
             </objects>

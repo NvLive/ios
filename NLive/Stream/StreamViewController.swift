@@ -21,6 +21,8 @@ class StreamViewController: UIViewController {
     @IBOutlet weak var broadcastImage: UIImageView!
     @IBOutlet weak var boradcastTitle: UILabel!
     @IBOutlet weak var playPause: UIButton? = nil
+    @IBOutlet weak var panGesture: UIPanGestureRecognizer!
+    @IBOutlet weak var scrollView: UIScrollView!
     
     var mainViewController: MainViewController? {
         return self.parent as? MainViewController
@@ -114,6 +116,8 @@ class StreamViewController: UIViewController {
     }
     
     @IBAction func panHandler(gesture: UIPanGestureRecognizer) {
+        defer { gesture.setTranslation(.zero, in: self.view) }
+        guard scrollView.contentOffset.y <= 0 else { return }
         switch(gesture.state) {
         case .changed, .began:
             let translation = gesture.translation(in: self.view)
@@ -127,7 +131,6 @@ class StreamViewController: UIViewController {
             else {
                 self.mainViewController?.streamHeightConstraint.constant = min(newValue, UIScreen.main.bounds.height)
             }
-            gesture.setTranslation(.zero, in: self.view)
         case .ended:
             state = .full
             gesture.isEnabled = false
@@ -157,5 +160,24 @@ extension StreamViewController: VLCMediaPlayerDelegate {
             playPause?.setImage(#imageLiteral(resourceName: "play-button"), for: .normal)
         }
         
+    }
+}
+
+
+extension StreamViewController: UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return false
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return false
+    }
+    
+   func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
     }
 }
