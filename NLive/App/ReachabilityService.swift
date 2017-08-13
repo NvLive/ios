@@ -75,17 +75,19 @@ extension ReachabilityService: StoreSubscriber {
 
         let config = NotificationCenterConfiguration(baseWindow: window)
         var labelConfig = NotificationLabelConfiguration()
-        labelConfig.backgroundColor = Color.Base.danger
         
         var message: String? = nil
         
         switch status {
         case .unreachable:
             message = "Нет соединения :("
+            labelConfig.backgroundColor = Color.Base.danger
         case .wifi:
             message = "Есть контакт :)"
+            labelConfig.backgroundColor = Color.Base.success
         case .wwan:
             message = "Есть контакт :)"
+            labelConfig.backgroundColor = Color.Base.success
         case .undefined:
             break
         }

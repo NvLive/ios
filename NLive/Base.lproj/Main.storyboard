@@ -5,7 +5,7 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -99,8 +99,8 @@
         <!--Navigation Controller-->
         <scene sceneID="J2y-Fy-CGD">
             <objects>
-                <navigationController restorationIdentifier="NavigationViewController" storyboardIdentifier="NavigationViewController" modalPresentationStyle="overCurrentContext" id="FLP-Im-pwf" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1Km-1I-i6N">
+                <navigationController restorationIdentifier="NavigationViewController" storyboardIdentifier="NavigationViewController" modalPresentationStyle="overCurrentContext" id="FLP-Im-pwf" customClass="NavigationViewController" customModule="NLive" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="1Km-1I-i6N">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
@@ -351,7 +351,7 @@
                 <customObject id="jne-bQ-4IK" customClass="LastBroadcastsDataSource" customModule="NLive" customModuleProvider="target"/>
                 <customObject id="bWw-Ig-Vsx" customClass="AllShowsDataSource" customModule="NLive" customModuleProvider="target">
                     <connections>
-                        <outlet property="heightConstraint" destination="cD2-9d-mK6" id="Wni-FX-KM1"/>
+                        <outlet property="heightConstraint" destination="cD2-9d-mK6" id="Bnc-UV-u7O"/>
                     </connections>
                 </customObject>
                 <tapGestureRecognizer id="ISW-ge-FWg">

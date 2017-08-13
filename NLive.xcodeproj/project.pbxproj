@@ -25,7 +25,6 @@
 		4439CB8E1F3F5AA300AD3190 /* AllShowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4439CB8D1F3F5AA300AD3190 /* AllShowCell.swift */; };
 		4439CB8F1F3F5FA600AD3190 /* LastBroadcastsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8F70D1F3F4EEF00729CA4 /* LastBroadcastsDataSource.swift */; };
 		4439CB901F3F5FA800AD3190 /* AllShowsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8F70B1F3F4EDD00729CA4 /* AllShowsDataSource.swift */; };
-		4439CB921F3F6D4300AD3190 /* StreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4427B40B1F3F0F3D00774D0C /* StreamViewController.swift */; };
 		44B8F70F1F3F4EF800729CA4 /* MainListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8F70E1F3F4EF800729CA4 /* MainListViewController.swift */; };
 		44DC17741F3FD9DD00C6B967 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DC17731F3FD9DD00C6B967 /* MainViewController.swift */; };
 		B1FD26D92EBDF15FD1DAC3D2 /* Pods_NLiveUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8C95817FDA64BE4BE42B92 /* Pods_NLiveUITests.framework */; };
@@ -53,8 +52,13 @@
 		D090D62B1F3FA3350007BDEC /* UIImage+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D090D61F1F3FA3350007BDEC /* UIImage+extension.swift */; };
 		D090D62C1F3FA3350007BDEC /* UIKit+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D090D6201F3FA3350007BDEC /* UIKit+extension.swift */; };
 		D090D62D1F3FA3350007BDEC /* UIView+extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = D090D6211F3FA3350007BDEC /* UIView+extension.swift */; };
-		D0B257B91F3FB382003EEC2F /* Show.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4439CB841F3F51E900AD3190 /* Show.swift */; };
-		D0B257BA1F3FB387003EEC2F /* Broadcast.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4439CB891F3F520D00AD3190 /* Broadcast.swift */; };
+		D0B257B91F3FB382003EEC2F /* ShowStoreEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4439CB841F3F51E900AD3190 /* ShowStoreEntities.swift */; };
+		D0B257BA1F3FB387003EEC2F /* BroadcastStoreEntities.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4439CB891F3F520D00AD3190 /* BroadcastStoreEntities.swift */; };
+		D0B257BD1F3FB90F003EEC2F /* DashboardDispatcher.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B257BC1F3FB90F003EEC2F /* DashboardDispatcher.swift */; };
+		D0B257BF1F3FBB28003EEC2F /* ShowStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B257BE1F3FBB28003EEC2F /* ShowStoreService.swift */; };
+		D0B257C11F3FBE84003EEC2F /* BroadcastStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B257C01F3FBE84003EEC2F /* BroadcastStoreService.swift */; };
+		D0B257C31F3FC508003EEC2F /* DashboardState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B257C21F3FC508003EEC2F /* DashboardState.swift */; };
+		D0B257C71F3FDEEA003EEC2F /* StreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B257C61F3FDEEA003EEC2F /* StreamViewController.swift */; };
 		F214E70C820C4DA76E65DDB6 /* Pods_NLiveTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50C76E2DEA12F88CAD49AD6B /* Pods_NLiveTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -104,7 +108,6 @@
 		4427B3F91F3F0A0A00774D0C /* NLiveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NLiveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4427B3FD1F3F0A0A00774D0C /* NLiveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NLiveUITests.swift; sourceTree = "<group>"; };
 		4427B3FF1F3F0A0A00774D0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4427B40B1F3F0F3D00774D0C /* StreamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamViewController.swift; sourceTree = "<group>"; };
 		4427B4131F3F244200774D0C /* NLive-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NLive-Bridging-Header.h"; sourceTree = "<group>"; };
 		4427B4171F3F24CE00774D0C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		4427B4191F3F24D400774D0C /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
@@ -115,8 +118,8 @@
 		4427B4231F3F252800774D0C /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
 		4427B4251F3F253400774D0C /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
 		4427B4271F3F254000774D0C /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
-		4439CB841F3F51E900AD3190 /* Show.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Show.swift; sourceTree = "<group>"; };
-		4439CB891F3F520D00AD3190 /* Broadcast.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Broadcast.swift; sourceTree = "<group>"; };
+		4439CB841F3F51E900AD3190 /* ShowStoreEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShowStoreEntities.swift; sourceTree = "<group>"; };
+		4439CB891F3F520D00AD3190 /* BroadcastStoreEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastStoreEntities.swift; sourceTree = "<group>"; };
 		4439CB8B1F3F5A7C00AD3190 /* LastBroadcastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastBroadcastCell.swift; sourceTree = "<group>"; };
 		4439CB8D1F3F5AA300AD3190 /* AllShowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllShowCell.swift; sourceTree = "<group>"; };
 		44B8F70B1F3F4EDD00729CA4 /* AllShowsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllShowsDataSource.swift; sourceTree = "<group>"; };
@@ -150,6 +153,11 @@
 		D090D61F1F3FA3350007BDEC /* UIImage+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIImage+extension.swift"; path = "Helpers/UIImage+extension.swift"; sourceTree = "<group>"; };
 		D090D6201F3FA3350007BDEC /* UIKit+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIKit+extension.swift"; path = "Helpers/UIKit+extension.swift"; sourceTree = "<group>"; };
 		D090D6211F3FA3350007BDEC /* UIView+extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = "UIView+extension.swift"; path = "Helpers/UIView+extension.swift"; sourceTree = "<group>"; };
+		D0B257BC1F3FB90F003EEC2F /* DashboardDispatcher.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DashboardDispatcher.swift; path = NLive/Dispatch/DashboardDispatcher.swift; sourceTree = SOURCE_ROOT; };
+		D0B257BE1F3FBB28003EEC2F /* ShowStoreService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowStoreService.swift; sourceTree = "<group>"; };
+		D0B257C01F3FBE84003EEC2F /* BroadcastStoreService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BroadcastStoreService.swift; sourceTree = "<group>"; };
+		D0B257C21F3FC508003EEC2F /* DashboardState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DashboardState.swift; path = NLive/Dashboard/DashboardState.swift; sourceTree = SOURCE_ROOT; };
+		D0B257C61F3FDEEA003EEC2F /* StreamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamViewController.swift; sourceTree = "<group>"; };
 		DB8C95817FDA64BE4BE42B92 /* Pods_NLiveUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NLiveUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0473BFFA3ACC531DC6383FF /* Pods-NLive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NLive.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NLive/Pods-NLive.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -221,9 +229,9 @@
 				D05B4E0A1F3F984700345D7D /* App */,
 				D05B4E1D1F3F9C7500345D7D /* Network */,
 				44B8F7111F3F519C00729CA4 /* Store */,
+				D0B257BB1F3FB88D003EEC2F /* Dashboard */,
 				44B8F7101F3F4EFD00729CA4 /* Main */,
-				44DC176E1F3FC01700C6B967 /* Stream */,
-				4427B3E11F3F0A0A00774D0C /* Main.storyboard */,
+				D0B257C61F3FDEEA003EEC2F /* StreamViewController.swift */,
 				4427B3E41F3F0A0A00774D0C /* Assets.xcassets */,
 				4427B3E61F3F0A0A00774D0C /* LaunchScreen.storyboard */,
 				4427B3E91F3F0A0A00774D0C /* Info.plist */,
@@ -274,6 +282,7 @@
 				44B8F70C1F3F4EEF00729CA4 /* Last Broadcasts */,
 				44B8F70A1F3F4EDD00729CA4 /* AllShows */,
 				44B8F70E1F3F4EF800729CA4 /* MainListViewController.swift */,
+				4427B3E11F3F0A0A00774D0C /* Main.storyboard */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -281,19 +290,13 @@
 		44B8F7111F3F519C00729CA4 /* Store */ = {
 			isa = PBXGroup;
 			children = (
-				4439CB841F3F51E900AD3190 /* Show.swift */,
-				4439CB891F3F520D00AD3190 /* Broadcast.swift */,
+				D0B257BE1F3FBB28003EEC2F /* ShowStoreService.swift */,
+				4439CB841F3F51E900AD3190 /* ShowStoreEntities.swift */,
+				D0B257C01F3FBE84003EEC2F /* BroadcastStoreService.swift */,
+				4439CB891F3F520D00AD3190 /* BroadcastStoreEntities.swift */,
 			);
 			name = Store;
 			path = Models;
-			sourceTree = "<group>";
-		};
-		44DC176E1F3FC01700C6B967 /* Stream */ = {
-			isa = PBXGroup;
-			children = (
-				4427B40B1F3F0F3D00774D0C /* StreamViewController.swift */,
-			);
-			name = Stream;
 			sourceTree = "<group>";
 		};
 		9BE0C44D06F0C29EBB9B76BA /* Frameworks */ = {
@@ -370,6 +373,16 @@
 				D090D6211F3FA3350007BDEC /* UIView+extension.swift */,
 			);
 			name = Helpers;
+			sourceTree = "<group>";
+		};
+		D0B257BB1F3FB88D003EEC2F /* Dashboard */ = {
+			isa = PBXGroup;
+			children = (
+				D0B257BC1F3FB90F003EEC2F /* DashboardDispatcher.swift */,
+				D0B257C21F3FC508003EEC2F /* DashboardState.swift */,
+			);
+			name = Dashboard;
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -450,9 +463,9 @@
 				TargetAttributes = {
 					4427B3D91F3F0A0A00774D0C = {
 						CreatedOnToolsVersion = 8.3.3;
-						DevelopmentTeam = J67Y29BQR7;
+						DevelopmentTeam = 6R2R3P9653;
 						LastSwiftMigration = 0830;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 					};
 					4427B3ED1F3F0A0A00774D0C = {
 						CreatedOnToolsVersion = 8.3.3;
@@ -620,7 +633,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		8756D890E1974B427F5C17AD /* [CP] Check Pods Manifest.lock */ = {
@@ -638,7 +651,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		94E951108DEDD47060996F18 /* [CP] Copy Pods Resources */ = {
@@ -686,7 +699,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -701,9 +714,11 @@
 				4439CB8C1F3F5A7C00AD3190 /* LastBroadcastCell.swift in Sources */,
 				44B8F70F1F3F4EF800729CA4 /* MainListViewController.swift in Sources */,
 				D090D6261F3FA3350007BDEC /* Realm+extension.swift in Sources */,
+				D0B257BF1F3FBB28003EEC2F /* ShowStoreService.swift in Sources */,
 				D05B4E131F3F990100345D7D /* Network.swift in Sources */,
-				D0B257B91F3FB382003EEC2F /* Show.swift in Sources */,
+				D0B257B91F3FB382003EEC2F /* ShowStoreEntities.swift in Sources */,
 				4439CB8F1F3F5FA600AD3190 /* LastBroadcastsDataSource.swift in Sources */,
+				D0B257C71F3FDEEA003EEC2F /* StreamViewController.swift in Sources */,
 				D05B4E1F1F3F9CC400345D7D /* ShowNetworkService.swift in Sources */,
 				D090D6281F3FA3350007BDEC /* ReSwift+extension.swift in Sources */,
 				D090D6231F3FA3350007BDEC /* Date+extension.swift in Sources */,
@@ -717,18 +732,20 @@
 				D090D62D1F3FA3350007BDEC /* UIView+extension.swift in Sources */,
 				D05B4E211F3F9E9200345D7D /* BroadcastNetworkService.swift in Sources */,
 				D090D6241F3FA3350007BDEC /* MVP.swift in Sources */,
+				D0B257BD1F3FB90F003EEC2F /* DashboardDispatcher.swift in Sources */,
 				D05B4E181F3F990100345D7D /* StatusBarNotificationsParamenters.swift in Sources */,
 				D05B4E231F3F9F7600345D7D /* PushNetworkService.swift in Sources */,
+				D0B257C31F3FC508003EEC2F /* DashboardState.swift in Sources */,
 				4439CB8E1F3F5AA300AD3190 /* AllShowCell.swift in Sources */,
 				D090D62C1F3FA3350007BDEC /* UIKit+extension.swift in Sources */,
 				D090D6251F3FA3350007BDEC /* Number+extension.swift in Sources */,
 				4427B3DE1F3F0A0A00774D0C /* AppDelegate.swift in Sources */,
 				D05B4E161F3F990100345D7D /* ReachabilityState.swift in Sources */,
-				4439CB921F3F6D4300AD3190 /* StreamViewController.swift in Sources */,
 				D05B4E171F3F990100345D7D /* State.swift in Sources */,
-				D0B257BA1F3FB387003EEC2F /* Broadcast.swift in Sources */,
+				D0B257BA1F3FB387003EEC2F /* BroadcastStoreEntities.swift in Sources */,
 				D090D6271F3FA3350007BDEC /* Response+Decodable.swift in Sources */,
 				D05B4E1A1F3F990100345D7D /* Styleguide.swift in Sources */,
+				D0B257C11F3FBE84003EEC2F /* BroadcastStoreService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -770,6 +787,7 @@
 				4427B3E21F3F0A0A00774D0C /* Base */,
 			);
 			name = Main.storyboard;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		4427B3E61F3F0A0A00774D0C /* LaunchScreen.storyboard */ = {
@@ -884,7 +902,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = J67Y29BQR7;
+				DEVELOPMENT_TEAM = 6R2R3P9653;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -892,8 +910,10 @@
 				);
 				INFOPLIST_FILE = NLive/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = it.eantropov.NLive;
+				PRODUCT_BUNDLE_IDENTIFIER = it.eantropov.nlive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ab6e42cc-b88b-4716-8650-552eb787dd41";
+				PROVISIONING_PROFILE_SPECIFIER = it.eantropov.nlive;
 				SWIFT_OBJC_BRIDGING_HEADER = "NLive-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -906,7 +926,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				DEVELOPMENT_TEAM = J67Y29BQR7;
+				DEVELOPMENT_TEAM = 6R2R3P9653;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -914,8 +934,10 @@
 				);
 				INFOPLIST_FILE = NLive/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				PRODUCT_BUNDLE_IDENTIFIER = it.eantropov.NLive;
+				PRODUCT_BUNDLE_IDENTIFIER = it.eantropov.nlive;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "ab6e42cc-b88b-4716-8650-552eb787dd41";
+				PROVISIONING_PROFILE_SPECIFIER = it.eantropov.nlive;
 				SWIFT_OBJC_BRIDGING_HEADER = "NLive-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};

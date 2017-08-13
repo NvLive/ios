@@ -23,6 +23,7 @@ class BroadcastStore: Object {
     dynamic var youtubeUrlString: String? = nil
     dynamic var isLive: Bool = false
     dynamic var isFeatured: Bool = false
+    dynamic var showId: Int = 0
     
     let show = LinkingObjects(fromType: ShowStore.self, property: "broadcasts")
     
@@ -48,5 +49,6 @@ extension BroadcastStore {
         streamUrlString = data.streamUrl.absoluteString
         isLive = data.isLive
         isFeatured = data.isFeatured
+        showId = data.showId
     }
 }

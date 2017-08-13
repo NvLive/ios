@@ -21,17 +21,18 @@ class MainListViewController: UIViewController {
     @IBOutlet var lastBroadcastDataSource: LastBroadcastsDataSource!
     @IBOutlet var allShowsDataSource: AllShowsDataSource!
     
+    let dispatcher = DashboardDispatcher()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         lastBroadcastDataSource.collectionView = lastBroadcastsCollection
         allShowsDataSource.collectionView = allShowsCollection
         scrollView.contentInset.bottom = 44
-    }
-    
-    @IBAction func featuredTap(gesture: UITapGestureRecognizer) {
         
+        dispatcher.fetchShows()
+        dispatcher.fetchCurrent()
+        dispatcher.fetchLast()
     }
-    
 }
 
 

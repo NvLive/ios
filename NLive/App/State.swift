@@ -21,26 +21,3 @@ func appReducer(action: Action, state: AppState?) -> AppState {
         dashboardState: dashboardReducer(action: action, state: state?.dashboardState)
     )
 }
-
-
-struct DashboardState: StateType {
-    
-}
-
-enum DashboardAction: Action {
-    
-}
-
-func dashboardReducer(action: Action, state: DashboardState?) -> DashboardState {
-    var state = state ?? DashboardState()
-    
-    guard action is DashboardAction else { return state }
-    
-    switch action as! DashboardAction {
-//    case .statusUpdated(status: let status):
-//        state.status = status
-    default: break
-    }
-    
-    return state
-}

@@ -17,8 +17,7 @@ struct Color {
     
     struct Background {
         static let base         = UIColor.white
-        static let tintedMuted  = UIColor(r: 223, g: 236, b: 240)
-        static let opposite     = UIColor.black
+        static let opposite     = UIColor(r: 52, g: 52, b: 52)
     }
     
     struct Navigation {
@@ -35,19 +34,7 @@ struct Color {
         )
         
         static let tinted = Colors(
-            background: UIColor(r: 0, g: 129, b: 204),
-            font:       Font.Color.opposite,
-            tint:       Font.Color.opposite
-        )
-        
-        static let tintedTranslucent = Colors(
-            background: UIColor(r: 0, g: 109, b: 197),
-            font:       Font.Color.opposite,
-            tint:       Font.Color.opposite
-        )
-        
-        static let image = Colors(
-            background: UIColor.clear,
+            background: Base.info,
             font:       Font.Color.opposite,
             tint:       Font.Color.opposite
         )
@@ -57,20 +44,11 @@ struct Color {
         static let separator = Color.Base.mutedMore
     }
     
-    struct Severity {
-        static let low      = Color.Base.success
-        static let moderate = UIColor(r: 165, g: 216, b: 43)
-        static let average  = Color.Base.warning
-        static let elevated = UIColor(r: 255, g: 133, b: 77)
-        static let high     = Color.Base.danger
-        static let special  = UIColor(r: 133, g: 95, b: 246)
-    }
-    
     struct Base {
-        static let danger   = UIColor(r: 255, g: 102, b: 99)
-        static let warning  = UIColor(r: 255, g: 189, b: 85)
-        static let success  = UIColor(r: 61, g: 213, b: 82)
-        static let info     = UIColor(r: 0, g: 191, b: 255)
+        static let danger   = UIColor(r: 202, g: 8, b: 20)
+        static let warning  = UIColor(r: 251, g: 112, b: 65)
+        static let success  = UIColor(r: 34, g: 203, b: 145)
+        static let info     = UIColor(r: 34, g: 203, b: 203) //RGB(199, 245, 245)
         static let mutedMore = UIColor(r: 200, g: 199, b: 204)
         static let muted    = UIColor(r: 131, g: 131, b: 131)
     }
