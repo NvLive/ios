@@ -102,7 +102,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ATj-ke-bEW">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="251"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="P1y-Fj-Wxe">
+                                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="P1y-Fj-Wxe">
                                                                 <rect key="frame" x="16" y="42" width="343" height="193"/>
                                                                 <gestureRecognizers/>
                                                                 <constraints>
@@ -388,7 +388,7 @@
                 </customObject>
                 <tapGestureRecognizer id="ISW-ge-FWg">
                     <connections>
-                        <action selector="featuredTapActionWithGesture:" destination="BYZ-38-t0r" id="src-h6-2xX"/>
+                        <action selector="featuredTapActionWithGesture:" destination="BYZ-38-t0r" id="tFF-UJ-GiY"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
