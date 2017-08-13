@@ -10,6 +10,10 @@ import Foundation
 import UIKit
 
 class StreamViewController: UIViewController {
+    var mainViewController: MainViewController? {
+        return self.parent as? MainViewController
+    }
+    
     let miniStateSize: CGFloat = 44
     
     enum State {
@@ -26,16 +30,19 @@ class StreamViewController: UIViewController {
     func reloadState(animated: Bool) {
         UIView.animate(withDuration: animated ? 0.25 : 0) {[weak self] in
             guard let `self` = self else { return }
-            let screen = UIScreen.main.bounds
-            switch(self.state) {
-            case .mini:
-                self.view.frame = CGRect(x: 0, y: screen.height - self.miniStateSize, width: screen.width, height: self.miniStateSize)
-            case .full:
-                self.view.frame = CGRect(x: 0, y: 0, width: screen.width, height: screen.height)
+            UIView.animate(withDuration: 0.25) {
+                switch(self.state) {
+                case .mini:
+                    self.mainViewController?.streamHeightConstraint.constant = self.miniStateSize
+                case .full:
+                     self.mainViewController?.streamHeightConstraint.constant = UIScreen.main.bounds.height - 40
+                }
+                self.mainViewController?.view.layoutIfNeeded()
             }
         }
     }
     
+
     @IBOutlet weak var playPause: UIButton? = nil
     let vlcPlayer = VLCMediaPlayer(options: [])!
     
@@ -44,12 +51,9 @@ class StreamViewController: UIViewController {
         vlcPlayer.delegate = self
         let media = VLCMedia(url: URL(string: "rtmp://194.177.20.219:1935/webcam/fbk_office")!)
         vlcPlayer.media = media
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {        
-        super.viewDidAppear(animated)
         reloadState(animated: false)
     }
+    
     
     @IBAction func playPausePresed() {
         if vlcPlayer.isPlaying == true {
@@ -57,6 +61,12 @@ class StreamViewController: UIViewController {
         }
         else {
             vlcPlayer.play()
+        }
+    }
+    
+    @IBAction func backgroundPress(gesture: UITapGestureRecognizer) {
+        if state == .mini {
+            state = .full
         }
     }
 }
@@ -67,9 +77,9 @@ extension StreamViewController: VLCMediaPlayerDelegate {
         case .opening,.buffering:
              playPause?.setTitle("Loading" , for: .normal)
         case .playing:
-            playPause?.setTitle("Pause" , for: .normal)
+            playPause?.setImage(#imageLiteral(resourceName: "play-button"), for: .normal)
         default:
-            playPause?.setTitle("Play", for: .normal)
+            playPause?.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
         }
         
     }
