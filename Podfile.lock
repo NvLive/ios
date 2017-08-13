@@ -23,6 +23,7 @@ PODS:
   - RxSwift (3.6.1)
   - SnapKit (3.2.0)
   - StatusBarNotificationCenter (1.1.4)
+  - Timepiece (1.2.0)
 
 DEPENDENCIES:
   - Decodable (~> 0.5)
@@ -38,6 +39,7 @@ DEPENDENCIES:
   - RxSwift (~> 3.0)
   - SnapKit (~> 3.2)
   - StatusBarNotificationCenter (from `git@github.com:nikans/StatusBarNotificationCenter.git`)
+  - Timepiece (~> 1.2.0)
 
 EXTERNAL SOURCES:
   Moya:
@@ -71,7 +73,8 @@ SPEC CHECKSUMS:
   RxSwift: f9de85ea20cd2f7716ee5409fc13523dc638e4e4
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   StatusBarNotificationCenter: cbf1b26836233faa978f5d748cbf3b6d66dd3f86
+  Timepiece: d07900e985af4911f09146f1175fdbec37944836
 
-PODFILE CHECKSUM: b64133deec20ee47774f7f27e0d206f5fa994d40
+PODFILE CHECKSUM: 74f6aff2f22ffbd0f9eef0253d1fcfe3eaf8fd97
 
 COCOAPODS: 1.2.0

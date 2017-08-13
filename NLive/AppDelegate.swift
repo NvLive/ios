@@ -93,10 +93,14 @@ extension AppDelegate {
         UINavigationBar.appearance().tintColor = Color.Navigation.tinted.tint
         UINavigationBar.appearance().backgroundColor = Color.Navigation.tinted.background
 
-        UINavigationBar.appearance().setBackgroundImage(UIImage.from(color: Color.Navigation.tinted.background), for: .default)
+//        UINavigationBar.appearance().setBackgroundImage(UIImage.from(color: Color.Navigation.tinted.background), for: .default)
+        UINavigationBar.appearance().setBackgroundImage(#imageLiteral(resourceName: "navbar_bg"), for: .default)
+        UINavigationBar.appearance().contentMode = .center
+        
         UINavigationBar.appearance().shadowImage = UIImage()
         UINavigationBar.appearance().isTranslucent = false
 
+        
         UINavigationBar.appearance().titleTextAttributes = [
             NSForegroundColorAttributeName: Font.Color.opposite,
             NSFontAttributeName: Font.largeMedium

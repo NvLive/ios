@@ -12,8 +12,8 @@ target 'NLive' do
   #############
   
   # RxSwift
-  pod 'RxSwift', '~> 3.0'
-  pod 'RxCocoa', '~> 3.0'
+  #pod 'RxSwift', '~> 3.0'
+  #pod 'RxCocoa', '~> 3.0'
   
   # ReSwift
   pod 'ReSwift', '~> 4.0'
@@ -85,7 +85,7 @@ target 'NLive' do
   # pod 'GTAlertBar' #, '~> 1.0.3'
   
   # https://github.com/naoty/Timepiece
-  # pod 'Timepiece', '~> 1.2.0'
+  pod 'Timepiece', '~> 1.2.0'
   
   # https://github.com/pkluz/PKHUD
   pod 'PKHUD', '~> 4.2'

@@ -11,7 +11,7 @@ import UIKit
 import ReSwift
 import RealmSwift
 import Nuke
-
+import Timepiece
 
 protocol LastBroadcastsDelegate {
     
@@ -74,7 +74,20 @@ class LastBroadcastsDataSource: NSObject, UICollectionViewDataSource, UICollecti
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell : LastBroadcastCell = collectionView.dequeueReusableCell(withReuseIdentifier: "LastBroadcastCell", for: indexPath) as! LastBroadcastCell
 
-//        cell.
+        let broadcast = elementsToDisplay?[indexPath.item]
+        
+        cell.broadcastTitleLabel.text = broadcast?.title
+        cell.createTimeLabel.text = broadcast?.startDate.timeString(in: .short)
+        
+        cell.broadcastImage.image = nil
+        
+        let imageUrlString = broadcast?.placeholderImageUrlString ?? broadcast?.show.first?.placeholderImageUrlString
+        
+        if  let imageUrlString = imageUrlString,
+            let imageUrl = URL(string: imageUrlString) {
+            Nuke.loadImage(with: imageUrl, into: cell.broadcastImage)
+        }
+
         
         return cell
     }
