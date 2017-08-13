@@ -18,6 +18,8 @@ class StreamViewController: UIViewController {
     @IBOutlet weak var smallView: UIView!
     @IBOutlet weak var volumeView: MPVolumeView!
     
+    @IBOutlet weak var smallViewBottomConstraint: NSLayoutConstraint!
+    
     @IBOutlet weak var broadcastImage: UIImageView!
     @IBOutlet weak var boradcastTitle: UILabel!
     @IBOutlet weak var playPause: UIButton? = nil
@@ -27,7 +29,15 @@ class StreamViewController: UIViewController {
     }
     
     var activeBroadcast: BroadcastStore? = nil {
-        didSet{
+        didSet {
+            if activeBroadcast == nil {
+                changeMusicBoxState(to: .none, animated: true)
+                stop()
+            } else {
+                changeMusicBoxStateToActive(animated: true)
+                play()
+            }
+            
             if let imageUrlString = activeBroadcast?.show.first?.placeholderImageUrlString,
                 let imageUrl = URL(string: imageUrlString) {
                 Nuke.loadImage(with: imageUrl, into: broadcastImage)
@@ -44,32 +54,43 @@ class StreamViewController: UIViewController {
     
     let miniStateSize: CGFloat = 56
     
-    enum State {
+    enum MusicBoxState {
         case mini
         case full
+        case none
     }
     
-    var state: State = .mini {
-        didSet {
-            reloadState(animated: true)
-        }
-    }
+    var musicBoxState: MusicBoxState = .none
     
-    func reloadState(animated: Bool) {
-        UIView.animate(withDuration: animated ? 0.35 : 0) {[weak self] in
-            guard let `self` = self else { return }
-            switch(self.state) {
+    func changeMusicBoxState(to state: MusicBoxState, animated: Bool) {
+        self.musicBoxState = state
+        
+        UIView.animate(withDuration: animated ? 0.35 : 0) {
+//            guard let `self` = self else { return }
+            switch(self.musicBoxState) {
             case .mini:
                 self.mainViewController?.streamHeightConstraint.constant = self.miniStateSize
                 self.fadeView.alpha = 0
                 self.smallView.alpha = 1
+                self.mainViewController?.streamBottomConstraint.constant = 0
             case .full:
                 self.mainViewController?.streamHeightConstraint.constant = UIScreen.main.bounds.height
                 self.fadeView.alpha = 1
                 self.smallView.alpha = 0
+                self.mainViewController?.streamBottomConstraint.constant = 0
+            case .none:
+                self.mainViewController?.streamHeightConstraint.constant = self.miniStateSize
+                self.fadeView.alpha = 0
+                self.smallView.alpha = 1
+                self.mainViewController?.streamBottomConstraint.constant = -self.miniStateSize
             }
             self.mainViewController?.view.layoutIfNeeded()
         }
+    }
+    
+    func changeMusicBoxStateToActive(animated: Bool) {
+        guard musicBoxState == .none else { return }
+        changeMusicBoxState(to: .mini, animated: true)
     }
     
 
@@ -83,16 +104,30 @@ class StreamViewController: UIViewController {
         volumeView.setRouteButtonImage(nil, for: .normal)
         
         vlcPlayer.delegate = self
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
         
         store.subscribe(self) { subcription in
             subcription.select { state in state.streamState }
         }
         
-        reloadState(animated: false)
+        changeMusicBoxState(to: activeBroadcast != nil ? .mini : .none, animated: false)
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        
+        store.unsubscribe(self)
     }
     
     
     @IBAction func playPausePresed() {
+        togglePlay()
+    }
+    
+    func togglePlay() {
         if vlcPlayer.isPlaying == true {
             vlcPlayer.pause()
         }
@@ -101,15 +136,24 @@ class StreamViewController: UIViewController {
         }
     }
     
+    func play() {
+        guard vlcPlayer.isPlaying == false else { return }
+        vlcPlayer.play()
+    }
+    
+    func stop() {
+        vlcPlayer.stop()
+    }
+    
     @IBAction func backgroundPress(gesture: UITapGestureRecognizer) {
-        if state == .mini {
-            state = .full
+        if musicBoxState == .mini {
+            changeMusicBoxState(to: .full, animated: true)
         }
     }
     
     @IBAction func fadePress(gesture: UITapGestureRecognizer) {
-        if state == .full {
-            state = .mini
+        if musicBoxState == .full {
+            changeMusicBoxState(to: .mini, animated: true)
         }
     }
     
@@ -120,7 +164,7 @@ class StreamViewController: UIViewController {
             var newValue = self.mainViewController?.streamHeightConstraint.constant ?? 0
             newValue -= translation.y
             if newValue < UIScreen.main.bounds.height / 2 {
-                state = .mini
+                changeMusicBoxState(to: .mini, animated: true)
                 gesture.isEnabled = false
                 gesture.isEnabled = true
             }
@@ -129,7 +173,7 @@ class StreamViewController: UIViewController {
             }
             gesture.setTranslation(.zero, in: self.view)
         case .ended:
-            state = .full
+            changeMusicBoxState(to: .full, animated: true)
             gesture.isEnabled = false
             gesture.isEnabled = true
         default:
@@ -142,20 +186,39 @@ class StreamViewController: UIViewController {
 extension StreamViewController: StoreSubscriber {
     
     func newState(state: StreamState) {
-        activeBroadcast = state.activeBroadcast
+        if state.activeBroadcast != activeBroadcast {
+            activeBroadcast = state.activeBroadcast
+        }
+        
+        switch state.playbackState {
+        case .loading:
+            playPause?.setTitle("Loading" , for: .normal)
+            playPause?.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
+            changeMusicBoxStateToActive(animated: true)
+        case .playing:
+            playPause?.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
+            changeMusicBoxStateToActive(animated: true)
+        case .paused:
+            playPause?.setImage(#imageLiteral(resourceName: "play-button"), for: .normal)
+            changeMusicBoxStateToActive(animated: true)
+        case .none:
+            playPause?.setImage(#imageLiteral(resourceName: "play-button"), for: .normal)
+            changeMusicBoxState(to: .none, animated: true)
+        }
     }
 }
 
 extension StreamViewController: VLCMediaPlayerDelegate {
     func mediaPlayerStateChanged(_ aNotification: Notification!) {
         switch vlcPlayer.state {
-        case .opening,.buffering:
-             playPause?.setTitle("Loading" , for: .normal)
+        case .opening, .buffering:
+            store.dispatchOnMain(StreamAction.playbackStateChanged(state: .loading))
         case .playing:
-            playPause?.setImage(#imageLiteral(resourceName: "play-button"), for: .normal)
-        default:
-            playPause?.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
+            store.dispatchOnMain(StreamAction.playbackStateChanged(state: .playing))
+        case .paused:
+            store.dispatchOnMain(StreamAction.playbackStateChanged(state: .paused))
+        case .stopped, .error, .ended:
+            store.dispatchOnMain(StreamAction.playbackStateChanged(state: .none))
         }
-        
     }
 }

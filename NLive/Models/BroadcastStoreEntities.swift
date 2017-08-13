@@ -33,6 +33,17 @@ class BroadcastStore: Object {
 }
 
 extension BroadcastStore {
+    static func ==(lhs: BroadcastStore, rhs: BroadcastStore) -> Bool {
+        return
+            lhs.id == rhs.id &&
+            lhs.streamUrlString == rhs.streamUrlString &&
+            lhs.isLive == rhs.isLive &&
+            lhs.localPathString == rhs.localPathString &&
+            lhs.isFeatured == rhs.isFeatured
+    }
+}
+
+extension BroadcastStore {
     
     convenience init(withDTO data: BroadcastDTO.Entity) {
         self.init()

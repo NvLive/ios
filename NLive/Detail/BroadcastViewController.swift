@@ -17,12 +17,16 @@ class BroadcastViewController: UIViewController {
     @IBOutlet weak var descriptionLabel: UILabel!
     @IBOutlet weak var contentsTitle: UILabel!
     
+    @IBOutlet weak var scrollView: UIScrollView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         if let broadcast = broadcast {
             configure(withBroadcast: broadcast)
         }
+        
+        scrollView.contentInset.bottom = 60
     }
     
     var broadcast: BroadcastStore? = nil

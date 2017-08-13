@@ -62,14 +62,16 @@ class DashboardViewController: UIViewController {
     
     
     @IBAction func featuredTapActionWithGesture(_ sender: Any) {
-        store.dispatch(StreamAction.activate(broadcast: self.featuredBroadcast))
+        if let broadcast = self.featuredBroadcast {
+            store.dispatch(StreamAction.activate(broadcast: broadcast))
+        }
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         lastBroadcastDataSource.collectionView = lastBroadcastsCollection
         allShowsDataSource.collectionView = allShowsCollection
-        scrollView.contentInset.bottom = 44
+        scrollView.contentInset.bottom = 60
         
         lastBroadcastDataSource.delegate = self
         allShowsDataSource.delegate = self

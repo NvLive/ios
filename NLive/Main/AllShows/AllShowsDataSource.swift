@@ -61,7 +61,6 @@ class AllShowsDataSource: NSObject, UICollectionViewDataSource, UICollectionView
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "AllShowCell", for: indexPath) as! AllShowCell
         
         cell.showImage.image = nil
-        
         if  let imageUrlString = elementsToDisplay?[indexPath.item].placeholderImageUrlString,
             let imageUrl = URL(string: imageUrlString) {
             Nuke.loadImage(with: imageUrl, into: cell.showImage)

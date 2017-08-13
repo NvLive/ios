@@ -15,6 +15,11 @@ struct DashboardState: StateType {
     var shows: Results<ShowStore>?
     var lastBroadcasts: Results<BroadcastStore>?
 }
+//extension DashboardState: Equatable {
+//    static func ==(lhs: DashboardState, rhs: DashboardState) -> Bool {
+//        return lhs.listUpdated == rhs.listUpdated
+//    }
+//}
 
 enum DashboardAction: Action {
     case featuredBroadcastsFetchInitiated(placeholderBroadcasts: Results<BroadcastStore>?)

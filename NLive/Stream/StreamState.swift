@@ -11,14 +11,27 @@ import RealmSwift
 
 
 struct StreamState: StateType {
+    enum PlaybackState {
+        case loading, playing, paused, none
+    }
+    
     var activeBroadcast: BroadcastStore?
-    var isPlaying: Bool = false
+    var playbackState: PlaybackState = .none
+}
+extension StreamState: Equatable {
+    static func ==(lhs: StreamState, rhs: StreamState) -> Bool {
+        return
+            lhs.activeBroadcast?.id == rhs.activeBroadcast?.id &&
+            lhs.playbackState == rhs.playbackState
+    }
 }
 
 enum StreamAction: Action {
-    case activate(broadcast: BroadcastStore?)
+    case activate(broadcast: BroadcastStore)
+    case playbackStateChanged(state: StreamState.PlaybackState)
     case pause
     case play
+    case stop
 }
 
 func streamReducer(action: Action, state: StreamState?) -> StreamState {
@@ -29,11 +42,17 @@ func streamReducer(action: Action, state: StreamState?) -> StreamState {
     switch action as! StreamAction {
     case .activate(broadcast: let broadcast):
         state.activeBroadcast = broadcast
-        state.isPlaying = broadcast != nil
+    case .playbackStateChanged(state: let playbackState):
+        state.playbackState = playbackState
     case .play:
-        state.isPlaying = state.activeBroadcast != nil
+        break
+//        state.playbackState = .playing
     case .pause:
-        state.isPlaying = false
+        break
+//        state.playbackState = .pause
+    case .stop:
+        break
+//        state.playbackState = .loading
     }
     
     return state
