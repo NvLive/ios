@@ -58,7 +58,7 @@ class DashboardViewController: UIViewController {
     
     
     @IBAction func featuredTapActionWithGesture(_ sender: Any) {
-        store.dispatchOnMain(StreamAction.activate(broadcast: self.featuredBroadcast))
+        store.dispatch(StreamAction.activate(broadcast: self.featuredBroadcast))
     }
     
     override func viewDidLoad() {
@@ -66,6 +66,9 @@ class DashboardViewController: UIViewController {
         lastBroadcastDataSource.collectionView = lastBroadcastsCollection
         allShowsDataSource.collectionView = allShowsCollection
         scrollView.contentInset.bottom = 44
+        
+        lastBroadcastDataSource.delegate = self
+        allShowsDataSource.delegate = self
         
         store.subscribe(self) { subcription in
             subcription.select { state in state.dashboardState.featuredBroadcasts }
@@ -79,6 +82,23 @@ class DashboardViewController: UIViewController {
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "BROADCAST_DETAIL_SEGUE" {
+            if  let vc = segue.destination as? BroadcastViewController,
+                let broadcast = sender as? BroadcastStore
+            {
+                vc.broadcast = broadcast
+            }
+        } else
+        if segue.identifier == "SHOW_DETAIL_SEGUE" {
+            if  let vc = segue.destination as? ShowViewController,
+                let show = sender as? ShowStore
+            {
+                vc.show = show
+            }
+        }
+    }
 }
 
 extension DashboardViewController: StoreSubscriber {
@@ -89,9 +109,13 @@ extension DashboardViewController: StoreSubscriber {
 }
 
 extension DashboardViewController: AllShowsDelegate {
-    
+    func navigateTo(show: ShowStore) {
+        performSegue(withIdentifier: "SHOW_DETAIL_SEGUE", sender: show)
+    }
 }
 
 extension DashboardViewController: LastBroadcastsDelegate {
-   
+    func navigateTo(broadcast: BroadcastStore) {
+        performSegue(withIdentifier: "BROADCAST_DETAIL_SEGUE", sender: broadcast)
+    }
 }

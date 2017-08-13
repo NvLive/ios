@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -39,7 +39,7 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kov-dd-BXg">
                                 <rect key="frame" x="0.0" y="55" width="375" height="455"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3Nn-mw-UwG">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Nn-mw-UwG">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="445"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uKm-3b-7Po">
@@ -75,7 +75,7 @@
                                                         <accessibility key="accessibilityConfiguration">
                                                             <accessibilityTraits key="traits" link="YES" staticText="YES"/>
                                                         </accessibility>
-                                                        <mutableString key="text">0:20 О конкурсе ведущих на канале Навальный LIVE. Подробнее: https://navalny.com/p/5485
+                                                        <string key="text">0:20 О конкурсе ведущих на канале Навальный LIVE. Подробнее: https://navalny.com/p/5485
 0:58 Денис Чужой — о своем YouTube-канале и проекте «Класс народа». Ссылка на канал: https://www.youtube.com/channel/UCCzV...
 4:10 Воспользоваться порталом «Госуслуги» можно будет через «Одноклассники». Подробнее: https://www.kommersant.ru/doc/3379508
 9:40 Казаки попросили денег на спектакль о превращении Дарта Вейдера в казака. Подробнее: https://lenta.ru/news/2017/08/09/oooh...
@@ -90,7 +90,7 @@
 40:52 💬 Из-за дизлайков у вас канал скрыт из рекомендованных.
 41:44 Жителям красноярской деревни предложили бесплатные места на кладбище за согласие на его строительство. Подробнее: https://zona.media/news/2017/08/09/ce...
 45:30 Глава Общественной палаты считает, что журналисту НТВ следовало ответить напавшему хулигану.
-50:10 Об актуальной политической сатире.</mutableString>
+50:10 Об актуальной политической сатире.</string>
                                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                         <nil key="textColor"/>
                                                         <nil key="highlightedColor"/>
@@ -136,6 +136,9 @@
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="AZM-E3-HLA" appends="YES" id="bee-Ht-R3Z"/>
+                                </connections>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="66K-TF-EtD">
                                 <rect key="frame" x="0.0" y="444" width="375" height="56"/>

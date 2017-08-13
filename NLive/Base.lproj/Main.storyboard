@@ -91,10 +91,10 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WzD-ib-H8P">
-                                <rect key="frame" x="0.0" y="8" width="375" height="1284"/>
+                                <rect key="frame" x="0.0" y="8" width="375" height="1236"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tPA-9L-iXd">
-                                        <rect key="frame" x="0.0" y="8" width="375" height="830"/>
+                                        <rect key="frame" x="0.0" y="8" width="375" height="846"/>
                                         <subviews>
                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="MJW-KX-v7l">
                                                 <rect key="frame" x="0.0" y="0.0" width="375" height="830"/>
@@ -333,7 +333,7 @@
                                             <constraint firstItem="MJW-KX-v7l" firstAttribute="leading" secondItem="tPA-9L-iXd" secondAttribute="leading" id="3ny-Kd-CDz"/>
                                             <constraint firstAttribute="trailing" secondItem="MJW-KX-v7l" secondAttribute="trailing" id="Gta-Vp-gEo"/>
                                             <constraint firstItem="MJW-KX-v7l" firstAttribute="top" secondItem="tPA-9L-iXd" secondAttribute="top" id="SR9-lw-0B6"/>
-                                            <constraint firstAttribute="bottom" secondItem="MJW-KX-v7l" secondAttribute="bottom" id="uhv-1M-LFm"/>
+                                            <constraint firstAttribute="bottom" secondItem="MJW-KX-v7l" secondAttribute="bottom" constant="16" id="uhv-1M-LFm"/>
                                         </constraints>
                                     </view>
                                 </subviews>
@@ -357,13 +357,15 @@
                             <constraint firstItem="XQ7-wQ-6RL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="35M-hN-ev5"/>
                             <constraint firstAttribute="trailing" secondItem="XQ7-wQ-6RL" secondAttribute="trailing" id="6n2-ii-Cqf"/>
                             <constraint firstItem="WzD-ib-H8P" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" constant="8" id="C3b-ll-GhM"/>
-                            <constraint firstAttribute="bottom" secondItem="WzD-ib-H8P" secondAttribute="bottom" constant="8" id="Cpq-Zn-Lar"/>
+                            <constraint firstAttribute="bottom" secondItem="WzD-ib-H8P" secondAttribute="bottom" constant="56" id="Cpq-Zn-Lar"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="XQ7-wQ-6RL" secondAttribute="bottom" id="Qht-Ls-yYc"/>
                             <constraint firstItem="WzD-ib-H8P" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="Y4J-bY-5Lc"/>
                             <constraint firstAttribute="trailing" secondItem="WzD-ib-H8P" secondAttribute="trailing" id="x7J-Fu-8Io"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="9z7-ll-gze"/>
+                    <navigationItem key="navigationItem" id="9z7-ll-gze">
+                        <barButtonItem key="backBarButtonItem" title=" " id="2Bb-5M-FQj"/>
+                    </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="1300"/>
                     <connections>
@@ -377,6 +379,8 @@
                         <outlet property="promoView" destination="ATj-ke-bEW" id="ysm-LU-cWl"/>
                         <outlet property="scrollView" destination="WzD-ib-H8P" id="CmZ-oR-353"/>
                         <outlet property="stackView" destination="MJW-KX-v7l" id="xst-eK-3fh"/>
+                        <segue destination="h5q-4j-xyo" kind="show" identifier="BROADCAST_DETAIL_SEGUE" id="rh9-5m-v3G"/>
+                        <segue destination="NWD-PE-08o" kind="show" identifier="SHOW_DETAIL_SEGUE" id="ZjD-1A-Nec"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -393,6 +397,236 @@
                 </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="-79.200000000000003" y="53.073463268365821"/>
+        </scene>
+        <!--Show View Controller-->
+        <scene sceneID="J0u-5E-8eW">
+            <objects>
+                <viewController id="NWD-PE-08o" customClass="ShowViewController" customModule="NLive" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="9rB-UV-22l"/>
+                        <viewControllerLayoutGuide type="bottom" id="sbW-ee-FXb"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="hTN-uY-Hf1">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4xL-3W-xb0">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="tOn-3I-qfC">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="304"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="zVm-cd-GT2">
+                                                <rect key="frame" x="16" y="8" width="343" height="193"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="zVm-cd-GT2" secondAttribute="height" multiplier="16:9" id="EFm-9S-yye"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Кактус" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bqP-YH-arl">
+                                                <rect key="frame" x="16" y="225" width="94" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="25"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="cuU-Kk-Ls6">
+                                                <rect key="frame" x="16" y="271" width="343" height="17"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Всякое о канале" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jtF-xK-XCB">
+                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="17"/>
+                                                        <accessibility key="accessibilityConfiguration">
+                                                            <accessibilityTraits key="traits" link="YES" staticText="YES"/>
+                                                        </accessibility>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstItem="cuU-Kk-Ls6" firstAttribute="leading" secondItem="tOn-3I-qfC" secondAttribute="leading" constant="16" id="7q5-LK-Lzo"/>
+                                            <constraint firstItem="cuU-Kk-Ls6" firstAttribute="top" secondItem="bqP-YH-arl" secondAttribute="bottom" constant="16" id="9j2-fD-06k"/>
+                                            <constraint firstAttribute="trailing" secondItem="cuU-Kk-Ls6" secondAttribute="trailing" constant="16" id="Ac3-6K-Frx"/>
+                                            <constraint firstAttribute="bottom" secondItem="cuU-Kk-Ls6" secondAttribute="bottom" constant="16" id="Bdz-IH-InE"/>
+                                            <constraint firstItem="zVm-cd-GT2" firstAttribute="leading" secondItem="tOn-3I-qfC" secondAttribute="leading" constant="16" id="Hf4-FE-NxC"/>
+                                            <constraint firstItem="zVm-cd-GT2" firstAttribute="top" secondItem="tOn-3I-qfC" secondAttribute="top" constant="8" id="Ooo-sQ-Inm"/>
+                                            <constraint firstItem="bqP-YH-arl" firstAttribute="top" secondItem="zVm-cd-GT2" secondAttribute="bottom" constant="24" id="XdY-Ih-Ncz"/>
+                                            <constraint firstItem="bqP-YH-arl" firstAttribute="leading" secondItem="tOn-3I-qfC" secondAttribute="leading" constant="16" id="YTB-K7-PeD"/>
+                                            <constraint firstItem="zVm-cd-GT2" firstAttribute="centerX" secondItem="tOn-3I-qfC" secondAttribute="centerX" id="nNO-hG-hal"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="tOn-3I-qfC" secondAttribute="bottom" id="PD3-7s-GfV"/>
+                                    <constraint firstAttribute="trailing" secondItem="tOn-3I-qfC" secondAttribute="trailing" id="Vk2-6k-xAc"/>
+                                    <constraint firstItem="tOn-3I-qfC" firstAttribute="width" secondItem="4xL-3W-xb0" secondAttribute="width" id="hWb-or-yR6"/>
+                                    <constraint firstItem="tOn-3I-qfC" firstAttribute="top" secondItem="4xL-3W-xb0" secondAttribute="top" id="rj9-lc-18h"/>
+                                    <constraint firstItem="tOn-3I-qfC" firstAttribute="leading" secondItem="4xL-3W-xb0" secondAttribute="leading" id="sCR-aR-Yb2"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1215686275" green="0.1215686275" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstItem="4xL-3W-xb0" firstAttribute="top" secondItem="hTN-uY-Hf1" secondAttribute="top" id="322-jT-9Dw"/>
+                            <constraint firstItem="4xL-3W-xb0" firstAttribute="leading" secondItem="hTN-uY-Hf1" secondAttribute="leading" id="RPh-GY-j5A"/>
+                            <constraint firstItem="sbW-ee-FXb" firstAttribute="top" secondItem="4xL-3W-xb0" secondAttribute="bottom" id="ZsU-eO-jiT"/>
+                            <constraint firstAttribute="trailing" secondItem="4xL-3W-xb0" secondAttribute="trailing" id="zjh-Vu-fAp"/>
+                        </constraints>
+                    </view>
+                    <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="descriptionLabel" destination="jtF-xK-XCB" id="JQv-Ya-jgB"/>
+                        <outlet property="imageView" destination="zVm-cd-GT2" id="etm-wD-foz"/>
+                        <outlet property="titleLabel" destination="bqP-YH-arl" id="M6J-xc-M2k"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="A91-MC-h3D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="758" y="427"/>
+        </scene>
+        <!--Broadcast View Controller-->
+        <scene sceneID="lex-gF-pP0">
+            <objects>
+                <viewController id="h5q-4j-xyo" customClass="BroadcastViewController" customModule="NLive" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sV5-C5-2iI"/>
+                        <viewControllerLayoutGuide type="bottom" id="wax-qh-9N8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="MZb-eS-v5F">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ogg-E9-yUk">
+                                <rect key="frame" x="0.0" y="64" width="375" height="547"/>
+                                <subviews>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GLd-hc-Q7P">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="1701"/>
+                                        <subviews>
+                                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="Dkd-jJ-Agk">
+                                                <rect key="frame" x="16" y="8" width="343" height="193"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="width" secondItem="Dkd-jJ-Agk" secondAttribute="height" multiplier="16:9" id="VJV-SR-zf8"/>
+                                                </constraints>
+                                            </imageView>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Кактус" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XiY-by-aIJ">
+                                                <rect key="frame" x="16" y="225" width="94" height="30"/>
+                                                <fontDescription key="fontDescription" type="system" weight="black" pointSize="25"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text=" Гость — стендап-комик Денис Чужой" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="i4A-j7-Scu">
+                                                <rect key="frame" x="16" y="263" width="343" height="20.5"/>
+                                                <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="OWj-IS-Ks8">
+                                                <rect key="frame" x="16" y="299" width="343" height="1386"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="djw-4d-BdV">
+                                                        <rect key="frame" x="0.0" y="0.0" width="343" height="685"/>
+                                                        <accessibility key="accessibilityConfiguration">
+                                                            <accessibilityTraits key="traits" link="YES" staticText="YES"/>
+                                                        </accessibility>
+                                                        <string key="text">0:20 О конкурсе ведущих на канале Навальный LIVE. Подробнее: https://navalny.com/p/5485
+0:58 Денис Чужой — о своем YouTube-канале и проекте «Класс народа». Ссылка на канал: https://www.youtube.com/channel/UCCzV...
+4:10 Воспользоваться порталом «Госуслуги» можно будет через «Одноклассники». Подробнее: https://www.kommersant.ru/doc/3379508
+9:40 Казаки попросили денег на спектакль о превращении Дарта Вейдера в казака. Подробнее: https://lenta.ru/news/2017/08/09/oooh...
+12:10 Денис Чужой — о профессии сценариста.
+15:25 Глава института РАН предложил разрешить мертвым голосовать на выборах. Подробнее: http://www.mk.ru/politics/2016/05/20/...
+16:38 Тюменская школа запрещает девочкам ходить в брюках. Директор ссылается на «русский менталитет» и «передавливание половых органов». Подробнее: https://meduza.io/feature/2017/08/09/...
+19:22 ❓ Денис, когда выйдет твоя книга?
+23:40 Про кремлеботов и «безлайки».
+31:50 В Госдуму внесли законопроект о запрете вейпов и кальянов в общественных местах. Подробнее: https://www.gazeta.ru/social/2017/02/...
+35:40 Чиновники из Санкт-Петербурга объявили тендер на закупку «качественных» спиннеров.
+38:05 📞 Илья Яшин — о ходе кампании по выборам муниципальных депутатов в Москве.
+40:52 💬 Из-за дизлайков у вас канал скрыт из рекомендованных.
+41:44 Жителям красноярской деревни предложили бесплатные места на кладбище за согласие на его строительство. Подробнее: https://zona.media/news/2017/08/09/ce...
+45:30 Глава Общественной палаты считает, что журналисту НТВ следовало ответить напавшему хулигану.
+50:10 Об актуальной политической сатире.</string>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xZ7-Ya-KUC">
+                                                        <rect key="frame" x="0.0" y="701" width="343" height="685"/>
+                                                        <accessibility key="accessibilityConfiguration">
+                                                            <accessibilityTraits key="traits" link="YES" staticText="YES"/>
+                                                        </accessibility>
+                                                        <string key="text">0:20 О конкурсе ведущих на канале Навальный LIVE. Подробнее: https://navalny.com/p/5485
+0:58 Денис Чужой — о своем YouTube-канале и проекте «Класс народа». Ссылка на канал: https://www.youtube.com/channel/UCCzV...
+4:10 Воспользоваться порталом «Госуслуги» можно будет через «Одноклассники». Подробнее: https://www.kommersant.ru/doc/3379508
+9:40 Казаки попросили денег на спектакль о превращении Дарта Вейдера в казака. Подробнее: https://lenta.ru/news/2017/08/09/oooh...
+12:10 Денис Чужой — о профессии сценариста.
+15:25 Глава института РАН предложил разрешить мертвым голосовать на выборах. Подробнее: http://www.mk.ru/politics/2016/05/20/...
+16:38 Тюменская школа запрещает девочкам ходить в брюках. Директор ссылается на «русский менталитет» и «передавливание половых органов». Подробнее: https://meduza.io/feature/2017/08/09/...
+19:22 ❓ Денис, когда выйдет твоя книга?
+23:40 Про кремлеботов и «безлайки».
+31:50 В Госдуму внесли законопроект о запрете вейпов и кальянов в общественных местах. Подробнее: https://www.gazeta.ru/social/2017/02/...
+35:40 Чиновники из Санкт-Петербурга объявили тендер на закупку «качественных» спиннеров.
+38:05 📞 Илья Яшин — о ходе кампании по выборам муниципальных депутатов в Москве.
+40:52 💬 Из-за дизлайков у вас канал скрыт из рекомендованных.
+41:44 Жителям красноярской деревни предложили бесплатные места на кладбище за согласие на его строительство. Подробнее: https://zona.media/news/2017/08/09/ce...
+45:30 Глава Общественной палаты считает, что журналисту НТВ следовало ответить напавшему хулигану.
+50:10 Об актуальной политической сатире.</string>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="OWj-IS-Ks8" secondAttribute="bottom" constant="16" id="0X9-sK-yX2"/>
+                                            <constraint firstItem="Dkd-jJ-Agk" firstAttribute="leading" secondItem="GLd-hc-Q7P" secondAttribute="leading" constant="16" id="5NL-Do-BQu"/>
+                                            <constraint firstItem="i4A-j7-Scu" firstAttribute="top" secondItem="XiY-by-aIJ" secondAttribute="bottom" constant="8" id="5QA-ms-yar"/>
+                                            <constraint firstItem="OWj-IS-Ks8" firstAttribute="leading" secondItem="GLd-hc-Q7P" secondAttribute="leading" constant="16" id="6nk-BO-BOA"/>
+                                            <constraint firstItem="i4A-j7-Scu" firstAttribute="leading" secondItem="GLd-hc-Q7P" secondAttribute="leading" constant="16" id="BO6-sb-3HF"/>
+                                            <constraint firstItem="XiY-by-aIJ" firstAttribute="leading" secondItem="GLd-hc-Q7P" secondAttribute="leading" constant="16" id="D4f-ly-BEW"/>
+                                            <constraint firstItem="Dkd-jJ-Agk" firstAttribute="centerX" secondItem="GLd-hc-Q7P" secondAttribute="centerX" id="Lpf-iX-AME"/>
+                                            <constraint firstItem="Dkd-jJ-Agk" firstAttribute="top" secondItem="GLd-hc-Q7P" secondAttribute="top" constant="8" id="Peh-RV-hft"/>
+                                            <constraint firstItem="XiY-by-aIJ" firstAttribute="top" secondItem="Dkd-jJ-Agk" secondAttribute="bottom" constant="24" id="bz2-v9-vMb"/>
+                                            <constraint firstItem="OWj-IS-Ks8" firstAttribute="top" secondItem="i4A-j7-Scu" secondAttribute="bottom" constant="16" id="eph-fJ-fng"/>
+                                            <constraint firstAttribute="trailing" secondItem="i4A-j7-Scu" secondAttribute="trailing" constant="16" id="g2t-4T-dhI"/>
+                                            <constraint firstAttribute="trailing" secondItem="OWj-IS-Ks8" secondAttribute="trailing" constant="16" id="y3O-hq-OGo"/>
+                                        </constraints>
+                                    </view>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="GLd-hc-Q7P" secondAttribute="bottom" id="2p3-tn-5S1"/>
+                                    <constraint firstItem="GLd-hc-Q7P" firstAttribute="leading" secondItem="Ogg-E9-yUk" secondAttribute="leading" id="Ewh-nW-UJy"/>
+                                    <constraint firstItem="GLd-hc-Q7P" firstAttribute="width" secondItem="Ogg-E9-yUk" secondAttribute="width" id="V2Q-yC-kYd"/>
+                                    <constraint firstItem="GLd-hc-Q7P" firstAttribute="top" secondItem="Ogg-E9-yUk" secondAttribute="top" id="cim-Rc-sIq"/>
+                                    <constraint firstAttribute="trailing" secondItem="GLd-hc-Q7P" secondAttribute="trailing" id="n0t-z8-bc9"/>
+                                </constraints>
+                            </scrollView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.1215686275" green="0.1215686275" blue="0.1215686275" alpha="1" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Ogg-E9-yUk" secondAttribute="trailing" id="ODb-nl-Ioh"/>
+                            <constraint firstItem="Ogg-E9-yUk" firstAttribute="leading" secondItem="MZb-eS-v5F" secondAttribute="leading" id="V1c-b5-4AT"/>
+                            <constraint firstItem="wax-qh-9N8" firstAttribute="top" secondItem="Ogg-E9-yUk" secondAttribute="bottom" constant="56" id="ffj-kB-lDc"/>
+                            <constraint firstItem="Ogg-E9-yUk" firstAttribute="top" secondItem="sV5-C5-2iI" secondAttribute="bottom" id="knb-wF-SPl"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="weH-l6-lYs">
+                        <barButtonItem key="backBarButtonItem" title=" " id="8pC-cB-y9B"/>
+                    </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
+                    <splitViewDetailSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+                    <connections>
+                        <outlet property="contentsTitle" destination="xZ7-Ya-KUC" id="zcG-V9-qar"/>
+                        <outlet property="descriptionLabel" destination="djw-4d-BdV" id="FM2-z5-oLP"/>
+                        <outlet property="imageView" destination="Dkd-jJ-Agk" id="mVS-Pn-T8L"/>
+                        <outlet property="showLabel" destination="XiY-by-aIJ" id="f9w-P3-hra"/>
+                        <outlet property="titleLabel" destination="i4A-j7-Scu" id="pfY-dp-hXu"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wQH-FA-ski" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="759" y="-232"/>
         </scene>
         <!--StreamViewController-->
         <scene sceneID="asf-c6-Swz">
