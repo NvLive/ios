@@ -25,8 +25,9 @@
 		4439CB8E1F3F5AA300AD3190 /* AllShowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4439CB8D1F3F5AA300AD3190 /* AllShowCell.swift */; };
 		4439CB8F1F3F5FA600AD3190 /* LastBroadcastsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8F70D1F3F4EEF00729CA4 /* LastBroadcastsDataSource.swift */; };
 		4439CB901F3F5FA800AD3190 /* AllShowsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8F70B1F3F4EDD00729CA4 /* AllShowsDataSource.swift */; };
+		446656A21F3FEC470044D790 /* Stream.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 446656A11F3FEC400044D790 /* Stream.storyboard */; };
 		44B8F70F1F3F4EF800729CA4 /* MainListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8F70E1F3F4EF800729CA4 /* MainListViewController.swift */; };
-		44DC17701F3FC05A00C6B967 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DC176F1F3FC05A00C6B967 /* NavigationViewController.swift */; };
+		44DC17741F3FD9DD00C6B967 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DC17731F3FD9DD00C6B967 /* MainViewController.swift */; };
 		B1FD26D92EBDF15FD1DAC3D2 /* Pods_NLiveUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8C95817FDA64BE4BE42B92 /* Pods_NLiveUITests.framework */; };
 		CC4994DF3B64AC697162781F /* Pods_NLive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F075980EDDD8B510BF34E1 /* Pods_NLive.framework */; };
 		D05B4E131F3F990100345D7D /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05B4E0B1F3F990100345D7D /* Network.swift */; };
@@ -122,10 +123,11 @@
 		4439CB891F3F520D00AD3190 /* BroadcastStoreEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastStoreEntities.swift; sourceTree = "<group>"; };
 		4439CB8B1F3F5A7C00AD3190 /* LastBroadcastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastBroadcastCell.swift; sourceTree = "<group>"; };
 		4439CB8D1F3F5AA300AD3190 /* AllShowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllShowCell.swift; sourceTree = "<group>"; };
+		446656A11F3FEC400044D790 /* Stream.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Stream.storyboard; path = /Users/Eugene/Projects/ios/NLive/NLive/Stream/Stream.storyboard; sourceTree = "<absolute>"; };
 		44B8F70B1F3F4EDD00729CA4 /* AllShowsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllShowsDataSource.swift; sourceTree = "<group>"; };
 		44B8F70D1F3F4EEF00729CA4 /* LastBroadcastsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastBroadcastsDataSource.swift; sourceTree = "<group>"; };
 		44B8F70E1F3F4EF800729CA4 /* MainListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListViewController.swift; sourceTree = "<group>"; };
-		44DC176F1F3FC05A00C6B967 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
+		44DC17731F3FD9DD00C6B967 /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
 		50C76E2DEA12F88CAD49AD6B /* Pods_NLiveTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NLiveTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F3997E03886CCFBE2C5BA4 /* Pods-NLiveUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NLiveUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NLiveUITests/Pods-NLiveUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5ED46AF8F19BEC7358F248DA /* Pods-NLiveTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NLiveTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NLiveTests/Pods-NLiveTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -225,13 +227,13 @@
 			isa = PBXGroup;
 			children = (
 				4427B3DD1F3F0A0A00774D0C /* AppDelegate.swift */,
-				44DC176F1F3FC05A00C6B967 /* NavigationViewController.swift */,
+				44DC17731F3FD9DD00C6B967 /* MainViewController.swift */,
 				D05B4E0A1F3F984700345D7D /* App */,
 				D05B4E1D1F3F9C7500345D7D /* Network */,
 				44B8F7111F3F519C00729CA4 /* Store */,
 				D0B257BB1F3FB88D003EEC2F /* Dashboard */,
 				44B8F7101F3F4EFD00729CA4 /* Main */,
-				D0B257C61F3FDEEA003EEC2F /* StreamViewController.swift */,
+				446656A31F3FEC540044D790 /* Stream */,
 				4427B3E41F3F0A0A00774D0C /* Assets.xcassets */,
 				4427B3E61F3F0A0A00774D0C /* LaunchScreen.storyboard */,
 				4427B3E91F3F0A0A00774D0C /* Info.plist */,
@@ -256,6 +258,15 @@
 				4427B3FF1F3F0A0A00774D0C /* Info.plist */,
 			);
 			path = NLiveUITests;
+			sourceTree = "<group>";
+		};
+		446656A31F3FEC540044D790 /* Stream */ = {
+			isa = PBXGroup;
+			children = (
+				446656A11F3FEC400044D790 /* Stream.storyboard */,
+				D0B257C61F3FDEEA003EEC2F /* StreamViewController.swift */,
+			);
+			path = Stream;
 			sourceTree = "<group>";
 		};
 		44B8F70A1F3F4EDD00729CA4 /* AllShows */ = {
@@ -506,6 +517,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				446656A21F3FEC470044D790 /* Stream.storyboard in Resources */,
 				4427B3E81F3F0A0A00774D0C /* LaunchScreen.storyboard in Resources */,
 				4427B3E51F3F0A0A00774D0C /* Assets.xcassets in Resources */,
 				4427B3E31F3F0A0A00774D0C /* Main.storyboard in Resources */,
@@ -556,6 +568,7 @@
 				"${BUILT_PRODUCTS_DIR}/Device/Device.framework",
 				"${BUILT_PRODUCTS_DIR}/KMNavigationBarTransition/KMNavigationBarTransition.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/Nuke/Nuke.framework",
 				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/ReSwift/ReSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
@@ -573,6 +586,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Device.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMNavigationBarTransition.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Nuke.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
@@ -633,7 +647,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8756D890E1974B427F5C17AD /* [CP] Check Pods Manifest.lock */ = {
@@ -651,7 +665,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		94E951108DEDD47060996F18 /* [CP] Copy Pods Resources */ = {
@@ -699,7 +713,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -723,7 +737,7 @@
 				D090D6281F3FA3350007BDEC /* ReSwift+extension.swift in Sources */,
 				D090D6231F3FA3350007BDEC /* Date+extension.swift in Sources */,
 				4439CB901F3F5FA800AD3190 /* AllShowsDataSource.swift in Sources */,
-				44DC17701F3FC05A00C6B967 /* NavigationViewController.swift in Sources */,
+				44DC17741F3FD9DD00C6B967 /* MainViewController.swift in Sources */,
 				D090D6141F3FA11F0007BDEC /* NetworkEntities.swift in Sources */,
 				D090D6291F3FA3350007BDEC /* String+extension.swift in Sources */,
 				D05B4E141F3F990100345D7D /* Reachability.swift in Sources */,

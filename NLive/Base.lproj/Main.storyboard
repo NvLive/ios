@@ -1,34 +1,61 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="FLP-Im-pwf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cfY-QT-lbW">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Stream View Controller-->
-        <scene sceneID="n2R-5s-j1C">
+        <!--Main View Controller-->
+        <scene sceneID="DD3-BS-HB8">
             <objects>
-                <viewController storyboardIdentifier="StreamViewController" modalPresentationStyle="overCurrentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Lax-mZ-pyT" customClass="StreamViewController" customModule="NLive" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="cfY-QT-lbW" customClass="MainViewController" customModule="NLive" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Pyg-SJ-zPg"/>
-                        <viewControllerLayoutGuide type="bottom" id="BkX-53-cif"/>
+                        <viewControllerLayoutGuide type="top" id="KsZ-gj-vYF"/>
+                        <viewControllerLayoutGuide type="bottom" id="eES-6F-eRy"/>
                     </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="rbI-F0-zRU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="44"/>
+                    <view key="view" contentMode="scaleToFill" id="sdI-Qu-EmX">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <color key="backgroundColor" red="0.97647058819999999" green="0.47450980390000003" blue="0.054901960780000002" alpha="1" colorSpace="calibratedRGB"/>
+                        <subviews>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5dy-nS-xyZ">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <connections>
+                                    <segue destination="FLP-Im-pwf" kind="embed" id="bSD-n2-tBp"/>
+                                </connections>
+                            </containerView>
+                            <containerView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oCU-gW-ePN">
+                                <rect key="frame" x="0.0" y="623" width="375" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="4gX-Jg-ZGw"/>
+                                </constraints>
+                                <connections>
+                                    <segue destination="vGn-VS-hnj" kind="embed" id="FW3-JX-tTw"/>
+                                </connections>
+                            </containerView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="eES-6F-eRy" firstAttribute="top" secondItem="oCU-gW-ePN" secondAttribute="bottom" id="DPY-PR-1B6"/>
+                            <constraint firstAttribute="trailing" secondItem="oCU-gW-ePN" secondAttribute="trailing" id="InB-g5-e49"/>
+                            <constraint firstItem="5dy-nS-xyZ" firstAttribute="leading" secondItem="sdI-Qu-EmX" secondAttribute="leading" id="Rrq-uF-QsB"/>
+                            <constraint firstItem="eES-6F-eRy" firstAttribute="top" secondItem="5dy-nS-xyZ" secondAttribute="bottom" id="c2G-ee-zQH"/>
+                            <constraint firstItem="5dy-nS-xyZ" firstAttribute="top" secondItem="sdI-Qu-EmX" secondAttribute="top" id="fLu-UJ-bd2"/>
+                            <constraint firstAttribute="trailing" secondItem="5dy-nS-xyZ" secondAttribute="trailing" id="ugL-oD-vl1"/>
+                            <constraint firstItem="oCU-gW-ePN" firstAttribute="leading" secondItem="sdI-Qu-EmX" secondAttribute="leading" id="wPS-4U-cfF"/>
+                        </constraints>
                     </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="44"/>
+                    <connections>
+                        <outlet property="streamHeightConstraint" destination="4gX-Jg-ZGw" id="FOx-PC-gdy"/>
+                    </connections>
                 </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wXd-57-3tV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="HP5-6O-flR" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1119" y="-361"/>
+            <point key="canvasLocation" x="-1972" y="53.523238380809602"/>
         </scene>
         <!--Navigation View Controller-->
         <scene sceneID="J2y-Fy-CGD">
@@ -294,7 +321,15 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="32.799999999999997" y="71.514242878560722"/>
+            <point key="canvasLocation" x="-78" y="54"/>
+        </scene>
+        <!--StreamViewController-->
+        <scene sceneID="asf-c6-Swz">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="StreamViewController" storyboardName="Stream" referencedIdentifier="StreamViewController" id="vGn-VS-hnj" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BrB-Oq-s2P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1119" y="-361"/>
         </scene>
     </scenes>
     <resources>
