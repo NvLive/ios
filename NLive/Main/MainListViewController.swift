@@ -11,6 +11,8 @@ import UIKit
 class MainListViewController: UIViewController {
 
     @IBOutlet weak var promoBroadcastView: UIImageView!
+    @IBOutlet weak var promoTitleLabel: UILabel!
+    @IBOutlet weak var promoCreateTimeLabel: UILabel!
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var lastBroadcastsCollection: UICollectionView!
@@ -26,6 +28,9 @@ class MainListViewController: UIViewController {
         scrollView.contentInset.bottom = 44
     }
     
+    @IBAction func featuredTap(gesture: UITapGestureRecognizer) {
+        
+    }
     
 }
 

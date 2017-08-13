@@ -49,7 +49,7 @@ CHECKOUT OPTIONS:
     :commit: 4bcac8144fd438b9b93c2a9907a8581dfd899278
     :git: git@github.com:Moya/Moya.git
   StatusBarNotificationCenter:
-    :commit: 6a23235b98aeb87d8016211cf947ceebb82e6a51
+    :commit: eade9576773a0a8101e522681dac8f563a5d5136
     :git: git@github.com:nikans/StatusBarNotificationCenter.git
 
 SPEC CHECKSUMS:

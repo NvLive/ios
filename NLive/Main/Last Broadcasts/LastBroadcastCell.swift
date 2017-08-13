@@ -9,5 +9,8 @@
 import UIKit
 
 class LastBroadcastCell: UICollectionViewCell {
-    
+    @IBOutlet weak var broadcastImage: UIImageView!
+    @IBOutlet weak var broadcastTitleLabel: UILabel!
+    @IBOutlet weak var showTitleLabel: UILabel!
+    @IBOutlet weak var createTimeLabel: UILabel!
 }
