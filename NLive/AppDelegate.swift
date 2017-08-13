@@ -9,6 +9,8 @@
 import UIKit
 import ReSwift
 import StatusBarNotificationCenter
+import AudioToolbox
+import AVFoundation
 
 #if DEBUG
 let App_Debug:Bool = true
@@ -52,7 +54,7 @@ extension AppDelegate {
         // Starting Reachability Service
         // for network availability monitoring
         reachabilityService = ReachabilityService(withBaseWindow: window!)
-        
+        try? AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback)
         configureStyle()
         
 //        for family: String in UIFont.familyNames
