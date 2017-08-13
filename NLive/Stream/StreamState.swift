@@ -10,20 +10,20 @@ import ReSwift
 import RealmSwift
 
 
-struct StremState: StateType {
+struct StreamState: StateType {
     var activeBroadcast: Results<BroadcastStore>?
 }
 
-enum StremAction: Action {
+enum StreamAction: Action {
     case activate(broadcast: Results<BroadcastStore>?)
 }
 
-func streamReducer(action: Action, state: StremState?) -> StremState {
-    var state = state ?? StremState()
+func streamReducer(action: Action, state: StreamState?) -> StreamState {
+    var state = state ?? StreamState()
     
-    guard action is StremAction else { return state }
+    guard action is StreamAction else { return state }
     
-    switch action as! StremAction {
+    switch action as! StreamAction {
     case .activate(broadcast: let broadcast):
         state.activeBroadcast = broadcast
     }
