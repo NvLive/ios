@@ -21,6 +21,7 @@ class StreamViewController: UIViewController {
     
     @IBOutlet weak var broadcastImage: UIImageView!
     @IBOutlet weak var boradcastTitle: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var playPause: UIButton? = nil
     @IBOutlet var panGesture: UIPanGestureRecognizer!
     @IBOutlet var tapGesture: UITapGestureRecognizer!
@@ -134,6 +135,7 @@ class StreamViewController: UIViewController {
         if keyPath == "time" || keyPath == "remainingTime"{
             leftTime.text = vlcPlayer.time.stringValue
             rightTime.text = vlcPlayer.remainingTime.stringValue
+            timeLabel.text = vlcPlayer.time.stringValue
             self.slider.layer.removeAllAnimations()
             UIView.animate(withDuration: 0.1, animations: {[weak self] in
                 guard let `self` = self else { return }
@@ -233,6 +235,7 @@ class StreamViewController: UIViewController {
             vlcPlayer.position = slider.value
             leftTime.text = vlcPlayer.time.stringValue
             rightTime.text = vlcPlayer.remainingTime.stringValue
+            timeLabel.text = vlcPlayer.time.stringValue
         }
     }
 }

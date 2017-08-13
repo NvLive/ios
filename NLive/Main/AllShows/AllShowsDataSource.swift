@@ -25,12 +25,17 @@ class AllShowsDataSource: NSObject, UICollectionViewDataSource, UICollectionView
         store.subscribe(self) { subcription in
             subcription.select { state in state.dashboardState.shows }
         }
+        
+        let itemWidth = (UIScreen.main.bounds.width - 16 * 2) / 2 - 8
+        let itemHeight = itemWidth / 16 * 9
+        (collectionView?.collectionViewLayout as? UICollectionViewFlowLayout)?.itemSize = CGSize(width: itemWidth, height: itemHeight)
+        (collectionView?.collectionViewLayout as? UICollectionViewFlowLayout)?.minimumInteritemSpacing = 8
     }
     
     weak var delegate: AllShowsDelegate? = nil
     
     var elementsToDisplay: Results<ShowStore>? = nil
-    
+
     @IBOutlet var heightConstraint: NSLayoutConstraint!
     
     weak var collectionView: UICollectionView? = nil {
