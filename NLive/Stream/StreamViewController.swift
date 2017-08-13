@@ -33,6 +33,7 @@ class StreamViewController: UIViewController {
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var leftTime: UILabel!
     @IBOutlet weak var rightTime: UILabel!
+    let avplayer = AVAudioPlayer()
     
     var mainViewController: MainViewController? {
         return self.parent as? MainViewController
@@ -172,17 +173,44 @@ class StreamViewController: UIViewController {
     }
     
     func play() {
+        
         guard vlcPlayer.isPlaying == false else { return }
+        do {
+            
+            try AVAudioSession.sharedInstance().setCategory(AVAudioSessionCategoryPlayback, with: .defaultToSpeaker)
+            print("AVAudioSession Category Playback OK")
+            do {
+                try AVAudioSession.sharedInstance().setActive(true)
+                print("AVAudioSession is Active")
+            } catch {
+                print(error)
+            }
+        } catch {
+            print(error)
+        }
+        MPNowPlayingInfoCenter.default().nowPlayingInfo = [MPMediaItemPropertyTitle: activeBroadcast?.title ?? "Podcast"]
+        
         vlcPlayer.play()
+        mainViewController?.becomeFirstResponder()
+        UIApplication.shared.beginReceivingRemoteControlEvents()
     }
+ 
+    
+    
     
     func pause() {
         guard vlcPlayer.isPlaying == true else { return }
+        try? AVAudioSession.sharedInstance().setActive(false)
         vlcPlayer.pause()
+        UIApplication.shared.endReceivingRemoteControlEvents()
+        resignFirstResponder()
     }
     
     func stop() {
+        try? AVAudioSession.sharedInstance().setActive(false)
         vlcPlayer.stop()
+        UIApplication.shared.endReceivingRemoteControlEvents()
+        resignFirstResponder()
     }
     
     @IBAction func backgroundPress(gesture: UITapGestureRecognizer) {
