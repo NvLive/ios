@@ -598,7 +598,7 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="GLd-hc-Q7P">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="1713"/>
                                         <subviews>
-                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dkd-jJ-Agk">
+                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Dkd-jJ-Agk">
                                                 <rect key="frame" x="16" y="20" width="343" height="193"/>
                                                 <gestureRecognizers/>
                                                 <constraints>
