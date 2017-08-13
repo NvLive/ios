@@ -27,6 +27,7 @@
 		4439CB901F3F5FA800AD3190 /* AllShowsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8F70B1F3F4EDD00729CA4 /* AllShowsDataSource.swift */; };
 		4439CB921F3F6D4300AD3190 /* StreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4427B40B1F3F0F3D00774D0C /* StreamViewController.swift */; };
 		44B8F70F1F3F4EF800729CA4 /* MainListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8F70E1F3F4EF800729CA4 /* MainListViewController.swift */; };
+		44DC17701F3FC05A00C6B967 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DC176F1F3FC05A00C6B967 /* NavigationViewController.swift */; };
 		B1FD26D92EBDF15FD1DAC3D2 /* Pods_NLiveUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8C95817FDA64BE4BE42B92 /* Pods_NLiveUITests.framework */; };
 		CC4994DF3B64AC697162781F /* Pods_NLive.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17F075980EDDD8B510BF34E1 /* Pods_NLive.framework */; };
 		D05B4E131F3F990100345D7D /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = D05B4E0B1F3F990100345D7D /* Network.swift */; };
@@ -125,6 +126,7 @@
 		44B8F70B1F3F4EDD00729CA4 /* AllShowsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllShowsDataSource.swift; sourceTree = "<group>"; };
 		44B8F70D1F3F4EEF00729CA4 /* LastBroadcastsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastBroadcastsDataSource.swift; sourceTree = "<group>"; };
 		44B8F70E1F3F4EF800729CA4 /* MainListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainListViewController.swift; sourceTree = "<group>"; };
+		44DC176F1F3FC05A00C6B967 /* NavigationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationViewController.swift; sourceTree = "<group>"; };
 		50C76E2DEA12F88CAD49AD6B /* Pods_NLiveTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NLiveTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		57F3997E03886CCFBE2C5BA4 /* Pods-NLiveUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NLiveUITests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NLiveUITests/Pods-NLiveUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		5ED46AF8F19BEC7358F248DA /* Pods-NLiveTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NLiveTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-NLiveTests/Pods-NLiveTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -223,6 +225,7 @@
 			isa = PBXGroup;
 			children = (
 				4427B3DD1F3F0A0A00774D0C /* AppDelegate.swift */,
+				44DC176F1F3FC05A00C6B967 /* NavigationViewController.swift */,
 				D05B4E0A1F3F984700345D7D /* App */,
 				D05B4E1D1F3F9C7500345D7D /* Network */,
 				44B8F7111F3F519C00729CA4 /* Store */,
@@ -231,7 +234,6 @@
 				4427B3E41F3F0A0A00774D0C /* Assets.xcassets */,
 				4427B3E61F3F0A0A00774D0C /* LaunchScreen.storyboard */,
 				4427B3E91F3F0A0A00774D0C /* Info.plist */,
-				4427B40B1F3F0F3D00774D0C /* StreamViewController.swift */,
 				D090D6151F3FA31D0007BDEC /* Helpers */,
 			);
 			path = NLive;
@@ -294,6 +296,14 @@
 			);
 			name = Store;
 			path = Models;
+			sourceTree = "<group>";
+		};
+		44DC176E1F3FC01700C6B967 /* Stream */ = {
+			isa = PBXGroup;
+			children = (
+				4427B40B1F3F0F3D00774D0C /* StreamViewController.swift */,
+			);
+			name = Stream;
 			sourceTree = "<group>";
 		};
 		9BE0C44D06F0C29EBB9B76BA /* Frameworks */ = {
@@ -550,19 +560,35 @@
 				"${SRCROOT}/Pods/Target Support Files/Pods-NLive/Pods-NLive-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Decodable/Decodable.framework",
+				"${BUILT_PRODUCTS_DIR}/Device/Device.framework",
+				"${BUILT_PRODUCTS_DIR}/KMNavigationBarTransition/KMNavigationBarTransition.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
+				"${BUILT_PRODUCTS_DIR}/PKHUD/PKHUD.framework",
+				"${BUILT_PRODUCTS_DIR}/ReSwift/ReSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
+				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
+				"${BUILT_PRODUCTS_DIR}/StatusBarNotificationCenter/StatusBarNotificationCenter.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Decodable.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Device.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/KMNavigationBarTransition.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/PKHUD.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ReSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StatusBarNotificationCenter.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -614,7 +640,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8756D890E1974B427F5C17AD /* [CP] Check Pods Manifest.lock */ = {
@@ -632,7 +658,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		94E951108DEDD47060996F18 /* [CP] Copy Pods Resources */ = {
@@ -680,7 +706,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -703,6 +729,7 @@
 				D090D6281F3FA3350007BDEC /* ReSwift+extension.swift in Sources */,
 				D090D6231F3FA3350007BDEC /* Date+extension.swift in Sources */,
 				4439CB901F3F5FA800AD3190 /* AllShowsDataSource.swift in Sources */,
+				44DC17701F3FC05A00C6B967 /* NavigationViewController.swift in Sources */,
 				D090D6141F3FA11F0007BDEC /* NetworkEntities.swift in Sources */,
 				D090D6291F3FA3350007BDEC /* String+extension.swift in Sources */,
 				D05B4E141F3F990100345D7D /* Reachability.swift in Sources */,
