@@ -137,7 +137,7 @@ extension LastBroadcastsDataSource: StoreSubscriber {
     func newState(state: Results<BroadcastStore>?) {
         var broadcasts = state
         if let ignore = delegate?.ignoreBroadcastsWithIds {
-            broadcasts = broadcasts?.filter("id IN %@", ignore)
+            broadcasts = broadcasts?.filter("NOT (id IN %@)", ignore)
         }
         elementsToDisplay = broadcasts
         reloadData()
