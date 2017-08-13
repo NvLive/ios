@@ -46,7 +46,7 @@ class LastBroadcastsDataSource: NSObject, UICollectionViewDataSource, UICollecti
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         
         itemWidth =  UIScreen.main.bounds.width - collectionMargin * 2.0
-        itemHeight = itemWidth / 16 * 9 + 64
+        itemHeight = itemWidth / 16 * 9 + 37
         
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
