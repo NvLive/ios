@@ -22,6 +22,9 @@ class StreamScrollView: UIScrollView, UIGestureRecognizerDelegate {
     }
     
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
+        if let pan = gestureRecognizer as? UIPanGestureRecognizer {
+            return abs(pan.velocity(in: pan.view).y) > abs(pan.velocity(in: pan.view).x)
+        }
+        return false
     }
 }

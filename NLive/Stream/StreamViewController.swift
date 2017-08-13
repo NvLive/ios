@@ -26,6 +26,14 @@ class StreamViewController: UIViewController {
     @IBOutlet weak var panGesture: UIPanGestureRecognizer!
     @IBOutlet weak var scrollView: UIScrollView!
     
+    @IBOutlet weak var detailBroadcastImage: UIImageView!
+    @IBOutlet weak var detailShowTitle: UILabel!
+    @IBOutlet weak var detailBroadcastTitle: UILabel!
+    @IBOutlet weak var detailBroadcastDescr: UILabel!
+    @IBOutlet weak var slider: UISlider!
+    @IBOutlet weak var leftTime: UILabel!
+    @IBOutlet weak var rightTime: UILabel!
+    
     var mainViewController: MainViewController? {
         return self.parent as? MainViewController
     }
@@ -45,12 +53,22 @@ class StreamViewController: UIViewController {
                 Nuke.loadImage(with: imageUrl, into: broadcastImage)
             }
             boradcastTitle.text = activeBroadcast?.title ?? ""
+            detailBroadcastTitle.text = activeBroadcast?.title ?? ""
+            detailBroadcastDescr.text = activeBroadcast?.descriptionString ?? ""
+            detailShowTitle.text = activeBroadcast?.show.first?.title ?? ""
+            
             if let streamUrlString = activeBroadcast?.streamUrlString,
                 let streamUrl = URL(string: streamUrlString) {
                 let media = VLCMedia(url: streamUrl)
                 vlcPlayer.media = media
                 vlcPlayer.play()
             }
+            
+            if let imageUrlString = activeBroadcast?.placeholderImageUrlString,
+                let imageUrl = URL(string: imageUrlString) {
+                Nuke.loadImage(with: imageUrl, into: detailBroadcastImage)
+            }
+            
         }
     }
     
@@ -101,11 +119,26 @@ class StreamViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        vlcPlayer.addObserver(self, forKeyPath: "time", options: [.old, .new, .initial], context: nil)
+        vlcPlayer.addObserver(self, forKeyPath: "remainingTime", options: [.old, .new, .initial], context: nil)
         volumeView.showsVolumeSlider = false
         volumeView.showsRouteButton = true        
         volumeView.setRouteButtonImage(nil, for: .normal)
         
         vlcPlayer.delegate = self
+    }
+    
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if keyPath == "time" || keyPath == "remainingTime"{
+            leftTime.text = vlcPlayer.time.stringValue
+            rightTime.text = vlcPlayer.remainingTime.stringValue
+            self.slider.layer.removeAllAnimations()
+            UIView.animate(withDuration: 0.1, animations: {[weak self] in
+                guard let `self` = self else { return }
+                self.slider.value = self.vlcPlayer.position
+            })
+        }
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -186,8 +219,13 @@ class StreamViewController: UIViewController {
             gesture.isEnabled = true
         default:
             ()
-        }
-        
+        }        
+    }
+    
+    @IBAction func sliderDidChange(slider: UISlider) {
+        vlcPlayer.position = slider.value
+        leftTime.text = vlcPlayer.time.stringValue
+        rightTime.text = vlcPlayer.remainingTime.stringValue
     }
 }
 
@@ -223,6 +261,16 @@ extension StreamViewController: StoreSubscriber {
             break
         }
     }
+    
+    func checkSeekEnable() {
+        if vlcPlayer.isSeekable {
+            slider.isUserInteractionEnabled = true
+        }
+        else {
+            slider.isUserInteractionEnabled = false
+            slider.value = 1.0
+        }
+    }
 }
 
 extension StreamViewController: VLCMediaPlayerDelegate {
@@ -230,10 +278,13 @@ extension StreamViewController: VLCMediaPlayerDelegate {
         switch vlcPlayer.state {
         case .opening, .buffering:
             store.dispatchOnMain(StreamAction.playbackStateChanged(state: .loading))
+            checkSeekEnable()
         case .playing:
             store.dispatchOnMain(StreamAction.playbackStateChanged(state: .playing))
+            checkSeekEnable()
         case .paused:
             store.dispatchOnMain(StreamAction.playbackStateChanged(state: .paused))
+            checkSeekEnable()
         case .stopped, .error, .ended:
             store.dispatchOnMain(StreamAction.playbackStateChanged(state: .none))
         }
@@ -254,7 +305,10 @@ extension StreamViewController: UIGestureRecognizerDelegate {
         return !(otherGestureRecognizer is UIPanGestureRecognizer)
     }
     
-   func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        return true
+    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+        if let pan = gestureRecognizer as? UIPanGestureRecognizer {
+            return abs(pan.velocity(in: pan.view).y) > abs(pan.velocity(in: pan.view).x)
+        }
+        return false
     }
 }
