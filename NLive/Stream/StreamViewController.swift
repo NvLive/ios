@@ -14,7 +14,6 @@ import MediaPlayer
 import Nuke
 
 class StreamViewController: UIViewController {
-    @IBOutlet weak var fadeView: UIView!
     @IBOutlet weak var smallView: UIView!
     @IBOutlet weak var volumeView: MPVolumeView!
     
@@ -22,14 +21,18 @@ class StreamViewController: UIViewController {
     
     @IBOutlet weak var broadcastImage: UIImageView!
     @IBOutlet weak var boradcastTitle: UILabel!
+    @IBOutlet weak var timeLabel: UILabel!
     @IBOutlet weak var playPause: UIButton? = nil
-    @IBOutlet weak var panGesture: UIPanGestureRecognizer!
+    @IBOutlet var panGesture: UIPanGestureRecognizer!
+    @IBOutlet var tapGesture: UITapGestureRecognizer!
+    
     @IBOutlet weak var scrollView: UIScrollView!
     
     @IBOutlet weak var detailBroadcastImage: UIImageView!
     @IBOutlet weak var detailShowTitle: UILabel!
     @IBOutlet weak var detailBroadcastTitle: UILabel!
     @IBOutlet weak var detailBroadcastDescr: UILabel!
+    @IBOutlet weak var detailBroadcastContents: UILabel!
     @IBOutlet weak var slider: UISlider!
     @IBOutlet weak var leftTime: UILabel!
     @IBOutlet weak var rightTime: UILabel!
@@ -56,6 +59,7 @@ class StreamViewController: UIViewController {
             boradcastTitle.text = activeBroadcast?.title ?? ""
             detailBroadcastTitle.text = activeBroadcast?.title ?? ""
             detailBroadcastDescr.text = activeBroadcast?.descriptionString ?? ""
+            detailBroadcastContents.text = activeBroadcast?.contents ?? ""
             detailShowTitle.text = activeBroadcast?.show.first?.title ?? ""
             
             if let streamUrlString = activeBroadcast?.streamUrlString,
@@ -91,18 +95,18 @@ class StreamViewController: UIViewController {
             switch(self.musicBoxState) {
             case .mini:
                 self.mainViewController?.streamHeightConstraint.constant = self.miniStateSize
-                self.fadeView.alpha = 0
-                self.smallView.alpha = 1
+                self.mainViewController?.fadeView.alpha = 0
+//                self.smallView.alpha = 1
                 self.mainViewController?.streamBottomConstraint.constant = 0
             case .full:
-                self.mainViewController?.streamHeightConstraint.constant = UIScreen.main.bounds.height
-                self.fadeView.alpha = 1
-                self.smallView.alpha = 0
+                self.mainViewController?.streamHeightConstraint.constant = UIScreen.main.bounds.height - 64
+                self.mainViewController?.fadeView.alpha = 1
+//                self.smallView.alpha = 0
                 self.mainViewController?.streamBottomConstraint.constant = 0
             case .none:
                 self.mainViewController?.streamHeightConstraint.constant = self.miniStateSize
-                self.fadeView.alpha = 0
-                self.smallView.alpha = 1
+                self.mainViewController?.fadeView.alpha = 0
+//                self.smallView.alpha = 1
                 self.mainViewController?.streamBottomConstraint.constant = -self.miniStateSize
             }
             self.mainViewController?.view.layoutIfNeeded()
@@ -134,6 +138,7 @@ class StreamViewController: UIViewController {
         if keyPath == "time" || keyPath == "remainingTime"{
             leftTime.text = vlcPlayer.time.stringValue
             rightTime.text = vlcPlayer.remainingTime.stringValue
+            timeLabel.text = vlcPlayer.time.stringValue
             self.slider.layer.removeAllAnimations()
             UIView.animate(withDuration: 0.1, animations: {[weak self] in
                 guard let `self` = self else { return }
@@ -150,12 +155,17 @@ class StreamViewController: UIViewController {
         }
         
         changeMusicBoxState(to: activeBroadcast != nil ? .mini : .none, animated: false)
+        
+        self.mainViewController?.fadeView.addGestureRecognizer(panGesture)
+        self.mainViewController?.fadeView.addGestureRecognizer(tapGesture)
     }
     
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         
         store.unsubscribe(self)
+        self.mainViewController?.fadeView.removeGestureRecognizer(panGesture)
+        self.mainViewController?.fadeView.removeGestureRecognizer(tapGesture)
     }
     
     
@@ -255,6 +265,7 @@ class StreamViewController: UIViewController {
             vlcPlayer.position = slider.value
             leftTime.text = vlcPlayer.time.stringValue
             rightTime.text = vlcPlayer.remainingTime.stringValue
+            timeLabel.text = vlcPlayer.time.stringValue
         }
     }
 }
