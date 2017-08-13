@@ -223,9 +223,11 @@ class StreamViewController: UIViewController {
     }
     
     @IBAction func sliderDidChange(slider: UISlider) {
-        vlcPlayer.position = slider.value
-        leftTime.text = vlcPlayer.time.stringValue
-        rightTime.text = vlcPlayer.remainingTime.stringValue
+        if vlcPlayer.isSeekable {
+            vlcPlayer.position = slider.value
+            leftTime.text = vlcPlayer.time.stringValue
+            rightTime.text = vlcPlayer.remainingTime.stringValue
+        }
     }
 }
 
