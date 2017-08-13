@@ -12,7 +12,7 @@ import RealmSwift
 import Nuke
 import Timepiece
 
-class MainListViewController: UIViewController {
+class DashboardViewController: UIViewController {
     
     @IBOutlet weak var stackView: UIStackView!
     
@@ -56,6 +56,11 @@ class MainListViewController: UIViewController {
     }
     private var isFeaturedDisplayed = true
     
+    
+    @IBAction func featuredTapActionWithGesture(_ sender: Any) {
+        store.dispatchOnMain(StreamAction.activate(broadcast: self.featuredBroadcast))
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         lastBroadcastDataSource.collectionView = lastBroadcastsCollection
@@ -76,17 +81,17 @@ class MainListViewController: UIViewController {
     }
 }
 
-extension MainListViewController: StoreSubscriber {
+extension DashboardViewController: StoreSubscriber {
     
     func newState(state: Results<BroadcastStore>?) {
         featuredBroadcast = state?.first
     }
 }
 
-extension MainListViewController: AllShowsDelegate {
+extension DashboardViewController: AllShowsDelegate {
     
 }
 
-extension MainListViewController: LastBroadcastsDelegate {
+extension DashboardViewController: LastBroadcastsDelegate {
    
 }

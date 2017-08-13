@@ -142,7 +142,7 @@ class StreamViewController: UIViewController {
 extension StreamViewController: StoreSubscriber {
     
     func newState(state: StreamState) {
-        activeBroadcast = state.activeBroadcast?.first
+        activeBroadcast = state.activeBroadcast
     }
 }
 

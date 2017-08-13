@@ -78,10 +78,10 @@
             </objects>
             <point key="canvasLocation" x="-1118" y="55"/>
         </scene>
-        <!--Main List View Controller-->
+        <!--Dashboard View Controller-->
         <scene sceneID="tne-QT-ifu">
             <objects>
-                <viewController id="BYZ-38-t0r" customClass="MainListViewController" customModule="NLive" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="BYZ-38-t0r" customClass="DashboardViewController" customModule="NLive" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
                         <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
@@ -388,7 +388,7 @@
                 </customObject>
                 <tapGestureRecognizer id="ISW-ge-FWg">
                     <connections>
-                        <action selector="featuredTapWithGesture:" destination="BYZ-38-t0r" id="pe9-H1-q1y"/>
+                        <action selector="featuredTapActionWithGesture:" destination="BYZ-38-t0r" id="src-h6-2xX"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>
