@@ -25,7 +25,7 @@ class ShowViewController: UIViewController, UICollectionViewDataSource, UICollec
         if let show = show {
             configure(withShow: show)
         }
-        let itemWidth =  UIScreen.main.bounds.width - 20 * 2.0
+        let itemWidth =  UIScreen.main.bounds.width - 16 * 2.0
         let itemHeight = itemWidth / 16 * 9 + 37
         (collectionView.collectionViewLayout as? UICollectionViewFlowLayout)?.itemSize = CGSize(width: itemWidth, height: itemHeight)
         
@@ -86,7 +86,7 @@ class ShowViewController: UIViewController, UICollectionViewDataSource, UICollec
         let broadcast = show?.broadcasts[indexPath.item]
         
         cell.broadcastTitleLabel.text = broadcast?.title
-        cell.createTimeLabel.text = broadcast?.startDate.timeString(in: .short)
+        cell.createTimeLabel.text = broadcast?.startDate.stringIn(dateStyle: .short, timeStyle: .short)
         
         cell.broadcastImage.image = nil
         
@@ -98,5 +98,21 @@ class ShowViewController: UIViewController, UICollectionViewDataSource, UICollec
         }
     
         return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if let broadcast = show?.broadcasts[indexPath.item] {
+            performSegue(withIdentifier: "BROADCAST_DETAIL_SEGUE", sender: broadcast)
+        }
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "BROADCAST_DETAIL_SEGUE" {
+            if  let vc = segue.destination as? BroadcastViewController,
+                let broadcast = sender as? BroadcastStore
+            {
+                vc.broadcast = broadcast
+            }
+        }
     }
 }

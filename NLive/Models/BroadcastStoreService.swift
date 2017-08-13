@@ -17,10 +17,15 @@ class BroadcastStoreService {
         let realm = try! Realm()
         try! realm.write {
             data.entities.forEach({ entity in
-                let broadcast = BroadcastStore(withDTO: entity)
-                realm.add(broadcast, update: true)
-                let show = realm.object(ofType: ShowStore.self, forPrimaryKey: entity.showId)
-                show?.broadcasts.append(broadcast)
+                let broadcastToAppend = BroadcastStore(withDTO: entity)
+                realm.add(broadcastToAppend, update: true)
+                guard let show = realm.object(ofType: ShowStore.self, forPrimaryKey: entity.showId)
+                    else { return }
+                if !show.broadcasts.contains(where: { (br) -> Bool in
+                    br.id == broadcastToAppend.id
+                }) {
+                    show.broadcasts.append(broadcastToAppend)
+                }
             })
         }
     }
@@ -30,10 +35,15 @@ class BroadcastStoreService {
         let realm = try! Realm()
         try! realm.write {
             let entity = data.entity
-            let broadcast = BroadcastStore(withDTO: entity)
-            realm.add(broadcast, update: true)
-            let show = realm.object(ofType: ShowStore.self, forPrimaryKey: entity.showId)
-            show?.broadcasts.append(broadcast)
+            let broadcastToAppend = BroadcastStore(withDTO: entity)
+            realm.add(broadcastToAppend, update: true)
+            guard let show = realm.object(ofType: ShowStore.self, forPrimaryKey: entity.showId)
+                else { return }
+            if !show.broadcasts.contains(where: { (br) -> Bool in
+                br.id == broadcastToAppend.id
+            }) {
+                show.broadcasts.append(broadcastToAppend)
+            }
         }
     }
     

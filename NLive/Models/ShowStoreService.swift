@@ -19,7 +19,13 @@ class ShowStoreService {
         let entities = data.entities.map({ (entity) -> ShowStore in
             let show = ShowStore(withDTO: entity)
             let broadcasts = realm.objects(BroadcastStore.self).filter("showId = %@", show.id)
-            show.broadcasts.append(objectsIn: broadcasts)
+            broadcasts.forEach({ (broadcastToAppend) in
+                if !show.broadcasts.contains(where: { (br) -> Bool in
+                    br.id == broadcastToAppend.id
+                }) {
+                    show.broadcasts.append(broadcastToAppend)
+                }
+            })
             return show
         })
         
