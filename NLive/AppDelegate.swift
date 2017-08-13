@@ -47,6 +47,8 @@ extension AppDelegate {
         // for network availability monitoring
         reachabilityService = ReachabilityService(withBaseWindow: window!)
         
+        configureStyle()
+        
         return true
     }
 
@@ -81,6 +83,30 @@ extension AppDelegate {
             window.rootViewController = rootViewController
             window.makeKeyAndVisible()
         }
+    }
+}
+
+extension AppDelegate {
+    
+    fileprivate func configureStyle() {
+        
+        UINavigationBar.appearance().tintColor = Color.Navigation.tinted.tint
+        UINavigationBar.appearance().backgroundColor = Color.Navigation.tinted.background
+
+        UINavigationBar.appearance().setBackgroundImage(UIImage.from(color: Color.Navigation.tinted.background), for: .default)
+        UINavigationBar.appearance().shadowImage = UIImage()
+        UINavigationBar.appearance().isTranslucent = false
+
+        UINavigationBar.appearance().titleTextAttributes = [
+            NSForegroundColorAttributeName: Font.Color.opposite,
+            NSFontAttributeName: Font.largeMedium
+        ]
+
+        UINavigationBar.appearance().backIndicatorImage = UIImage(named: "navbar_back")
+        UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage(named: "navbar_back")
+        
+        UINavigationBar.appearance().backIndicatorImage = UIImage(named: "back-button-opposite")
+        UINavigationBar.appearance().backIndicatorTransitionMaskImage = UIImage(named: "back-button-opposite")
     }
 }
 

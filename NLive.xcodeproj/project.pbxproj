@@ -25,7 +25,6 @@
 		4439CB8E1F3F5AA300AD3190 /* AllShowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4439CB8D1F3F5AA300AD3190 /* AllShowCell.swift */; };
 		4439CB8F1F3F5FA600AD3190 /* LastBroadcastsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8F70D1F3F4EEF00729CA4 /* LastBroadcastsDataSource.swift */; };
 		4439CB901F3F5FA800AD3190 /* AllShowsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8F70B1F3F4EDD00729CA4 /* AllShowsDataSource.swift */; };
-		4439CB921F3F6D4300AD3190 /* StreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4427B40B1F3F0F3D00774D0C /* StreamViewController.swift */; };
 		44B8F70F1F3F4EF800729CA4 /* MainListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8F70E1F3F4EF800729CA4 /* MainListViewController.swift */; };
 		44DC17701F3FC05A00C6B967 /* NavigationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DC176F1F3FC05A00C6B967 /* NavigationViewController.swift */; };
 		B1FD26D92EBDF15FD1DAC3D2 /* Pods_NLiveUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8C95817FDA64BE4BE42B92 /* Pods_NLiveUITests.framework */; };
@@ -59,6 +58,7 @@
 		D0B257BF1F3FBB28003EEC2F /* ShowStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B257BE1F3FBB28003EEC2F /* ShowStoreService.swift */; };
 		D0B257C11F3FBE84003EEC2F /* BroadcastStoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B257C01F3FBE84003EEC2F /* BroadcastStoreService.swift */; };
 		D0B257C31F3FC508003EEC2F /* DashboardState.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B257C21F3FC508003EEC2F /* DashboardState.swift */; };
+		D0B257C71F3FDEEA003EEC2F /* StreamViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D0B257C61F3FDEEA003EEC2F /* StreamViewController.swift */; };
 		F214E70C820C4DA76E65DDB6 /* Pods_NLiveTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 50C76E2DEA12F88CAD49AD6B /* Pods_NLiveTests.framework */; };
 /* End PBXBuildFile section */
 
@@ -108,7 +108,6 @@
 		4427B3F91F3F0A0A00774D0C /* NLiveUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = NLiveUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		4427B3FD1F3F0A0A00774D0C /* NLiveUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NLiveUITests.swift; sourceTree = "<group>"; };
 		4427B3FF1F3F0A0A00774D0C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		4427B40B1F3F0F3D00774D0C /* StreamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamViewController.swift; sourceTree = "<group>"; };
 		4427B4131F3F244200774D0C /* NLive-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "NLive-Bridging-Header.h"; sourceTree = "<group>"; };
 		4427B4171F3F24CE00774D0C /* libz.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.tbd; path = usr/lib/libz.tbd; sourceTree = SDKROOT; };
 		4427B4191F3F24D400774D0C /* libiconv.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.tbd; path = usr/lib/libiconv.tbd; sourceTree = SDKROOT; };
@@ -158,6 +157,7 @@
 		D0B257BE1F3FBB28003EEC2F /* ShowStoreService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShowStoreService.swift; sourceTree = "<group>"; };
 		D0B257C01F3FBE84003EEC2F /* BroadcastStoreService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BroadcastStoreService.swift; sourceTree = "<group>"; };
 		D0B257C21F3FC508003EEC2F /* DashboardState.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = DashboardState.swift; path = NLive/Dashboard/DashboardState.swift; sourceTree = SOURCE_ROOT; };
+		D0B257C61F3FDEEA003EEC2F /* StreamViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StreamViewController.swift; sourceTree = "<group>"; };
 		DB8C95817FDA64BE4BE42B92 /* Pods_NLiveUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NLiveUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E0473BFFA3ACC531DC6383FF /* Pods-NLive.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NLive.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NLive/Pods-NLive.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -231,6 +231,7 @@
 				44B8F7111F3F519C00729CA4 /* Store */,
 				D0B257BB1F3FB88D003EEC2F /* Dashboard */,
 				44B8F7101F3F4EFD00729CA4 /* Main */,
+				D0B257C61F3FDEEA003EEC2F /* StreamViewController.swift */,
 				4427B3E41F3F0A0A00774D0C /* Assets.xcassets */,
 				4427B3E61F3F0A0A00774D0C /* LaunchScreen.storyboard */,
 				4427B3E91F3F0A0A00774D0C /* Info.plist */,
@@ -296,14 +297,6 @@
 			);
 			name = Store;
 			path = Models;
-			sourceTree = "<group>";
-		};
-		44DC176E1F3FC01700C6B967 /* Stream */ = {
-			isa = PBXGroup;
-			children = (
-				4427B40B1F3F0F3D00774D0C /* StreamViewController.swift */,
-			);
-			name = Stream;
 			sourceTree = "<group>";
 		};
 		9BE0C44D06F0C29EBB9B76BA /* Frameworks */ = {
@@ -640,7 +633,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		8756D890E1974B427F5C17AD /* [CP] Check Pods Manifest.lock */ = {
@@ -658,7 +651,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 		94E951108DEDD47060996F18 /* [CP] Copy Pods Resources */ = {
@@ -706,7 +699,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -725,6 +718,7 @@
 				D05B4E131F3F990100345D7D /* Network.swift in Sources */,
 				D0B257B91F3FB382003EEC2F /* ShowStoreEntities.swift in Sources */,
 				4439CB8F1F3F5FA600AD3190 /* LastBroadcastsDataSource.swift in Sources */,
+				D0B257C71F3FDEEA003EEC2F /* StreamViewController.swift in Sources */,
 				D05B4E1F1F3F9CC400345D7D /* ShowNetworkService.swift in Sources */,
 				D090D6281F3FA3350007BDEC /* ReSwift+extension.swift in Sources */,
 				D090D6231F3FA3350007BDEC /* Date+extension.swift in Sources */,
@@ -747,7 +741,6 @@
 				D090D6251F3FA3350007BDEC /* Number+extension.swift in Sources */,
 				4427B3DE1F3F0A0A00774D0C /* AppDelegate.swift in Sources */,
 				D05B4E161F3F990100345D7D /* ReachabilityState.swift in Sources */,
-				4439CB921F3F6D4300AD3190 /* StreamViewController.swift in Sources */,
 				D05B4E171F3F990100345D7D /* State.swift in Sources */,
 				D0B257BA1F3FB387003EEC2F /* BroadcastStoreEntities.swift in Sources */,
 				D090D6271F3FA3350007BDEC /* Response+Decodable.swift in Sources */,

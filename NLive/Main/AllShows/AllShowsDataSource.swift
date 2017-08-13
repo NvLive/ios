@@ -38,13 +38,13 @@ class AllShowsDataSource: NSObject, UICollectionViewDataSource, UICollectionView
     }
     
     func reloadData() {
+        guard collectionView != nil else { return }
+        
         collectionView?.isScrollEnabled = false
-        collectionView?.performBatchUpdates({[weak self] in
-            self?.collectionView?.reloadData()
-        }, completion: {[weak self] (succes) in
-            self?.heightConstraint.constant = self?.collectionView?.contentSize.height ?? 0
-            self?.collectionView?.layoutIfNeeded()
-        })
+        collectionView?.reloadData()
+        collectionView?.layoutIfNeeded()
+        heightConstraint.constant = collectionView?.contentSize.height ?? 0
+        collectionView?.layoutIfNeeded()
     }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
