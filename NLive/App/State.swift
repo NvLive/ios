@@ -12,12 +12,14 @@ struct AppState: StateType {
     var routerState = RouterState()
     var reachabilityState = ReachabilityState()
     var dashboardState = DashboardState()
+    var streamState = StreamState()
 }
 
 func appReducer(action: Action, state: AppState?) -> AppState {
     return AppState(
         routerState: routerReducer(action: action, state: state?.routerState),
         reachabilityState: reachabilityReducer(action: action, state: state?.reachabilityState),
-        dashboardState: dashboardReducer(action: action, state: state?.dashboardState)
+        dashboardState: dashboardReducer(action: action, state: state?.dashboardState),
+        streamState: streamReducer(action: action, state: state?.streamState)
     )
 }

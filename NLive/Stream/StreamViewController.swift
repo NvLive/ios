@@ -8,6 +8,8 @@
 
 import Foundation
 import UIKit
+import ReSwift
+import RealmSwift
 
 class StreamViewController: UIViewController {
     @IBOutlet weak var fadeView: UIView!
@@ -17,7 +19,7 @@ class StreamViewController: UIViewController {
         return self.parent as? MainViewController
     }
     
-    
+    var activeBroadcast: BroadcastStore? = nil
     
     let miniStateSize: CGFloat = 56
     
@@ -55,9 +57,15 @@ class StreamViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         vlcPlayer.delegate = self
         let media = VLCMedia(url: URL(string: "rtmp://194.177.20.219:1935/webcam/fbk_office")!)
         vlcPlayer.media = media
+        
+        store.subscribe(self) { subcription in
+            subcription.select { state in state.streamState }
+        }
+        
         reloadState(animated: false)
     }
     
@@ -106,6 +114,13 @@ class StreamViewController: UIViewController {
             ()
         }
         
+    }
+}
+
+extension StreamViewController: StoreSubscriber {
+    
+    func newState(state: StreamState) {
+        activeBroadcast = state.activeBroadcast?.first
     }
 }
 
