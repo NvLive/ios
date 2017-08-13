@@ -30,7 +30,7 @@ struct NetworkParameters {
 
 class NetworkService<R: NetworkRouter> {
     
-    internal let provider = MoyaProvider<R>() // plugins: [NetworkLoggerPlugin(verbose: true)]
+    internal let provider = MoyaProvider<R>(plugins: [NetworkLoggerPlugin(verbose: true)])
 
 }
 

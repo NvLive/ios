@@ -9,6 +9,7 @@ PODS:
   - Moya/Core (9.0.0-alpha.1):
     - Alamofire (~> 4.1)
     - Result (~> 3.0)
+  - Nuke (5.1.1)
   - PKHUD (4.2.3)
   - Realm (2.9.1):
     - Realm/Headers (= 2.9.1)
@@ -29,6 +30,7 @@ DEPENDENCIES:
   - KMNavigationBarTransition (~> 1.0.0)
   - MobileVLCKit-unstable (= 3.0.0a8)
   - Moya (from `git@github.com:Moya/Moya.git`, branch `9.0.0-dev`)
+  - Nuke (~> 5.0)
   - PKHUD (~> 4.2)
   - RealmSwift (~> 2.8)
   - ReSwift (~> 4.0)
@@ -59,6 +61,7 @@ SPEC CHECKSUMS:
   KMNavigationBarTransition: b3fb8337f7a1e4542add07fd6c45fb9980794d59
   MobileVLCKit-unstable: f26a69fa76366dadbc9badcba5923ac18d3b82d6
   Moya: d104801616468247e5a9abd258c838c5ca6b1389
+  Nuke: 0a2ddb4bd13d75782964bf598a159ca2a836d826
   PKHUD: c7692163a09875cbf15827dc581df3c5cf7f1015
   Realm: f91fb43bd474c4f731a116ebf7392c75dd015920
   RealmSwift: 207f12a4a36b696c5183c60a1c06d70234a23e56
@@ -69,6 +72,6 @@ SPEC CHECKSUMS:
   SnapKit: 1ca44df72cfa543218d177cb8aab029d10d86ea7
   StatusBarNotificationCenter: cbf1b26836233faa978f5d748cbf3b6d66dd3f86
 
-PODFILE CHECKSUM: 48525593ee6c3096d90cd7b01639a2ed45623d3c
+PODFILE CHECKSUM: b64133deec20ee47774f7f27e0d206f5fa994d40
 
 COCOAPODS: 1.2.0

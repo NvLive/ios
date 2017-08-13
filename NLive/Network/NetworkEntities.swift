@@ -90,7 +90,7 @@ struct BroadcastDTO: NetworkDeserializer {
                 endDate: endDateString?.dateFromISO8601,
                 transcript: json =>? "transcript",
                 contents: json =>? "contents",
-                streamUrl: URL(string: (json => "streamUrl")!)!,
+                streamUrl: URL(string: (json => "stream_url")!)!,
                 youtubeUrl: youtubeUrl,
                 isLive: json => "is_live",
                 isFeatured: json => "is_featured",

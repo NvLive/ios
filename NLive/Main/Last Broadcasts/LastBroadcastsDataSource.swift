@@ -8,12 +8,28 @@
 
 import Foundation
 import UIKit
+import ReSwift
+import RealmSwift
+import Nuke
+
 
 protocol LastBroadcastsDelegate {
     
 }
 
 class LastBroadcastsDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDelegate {
+    
+    override init() {
+        super.init()
+        
+        store.subscribe(self) { subcription in
+            subcription.select { state in state.dashboardState.lastBroadcasts }
+        }
+    }
+    
+    var elementsToDisplay: Results<BroadcastStore>? = nil
+
+    
     weak var collectionView: UICollectionView? = nil {
         didSet{
             configurePagedLayout()
@@ -43,17 +59,23 @@ class LastBroadcastsDataSource: NSObject, UICollectionViewDataSource, UICollecti
         collectionView?.decelerationRate = UIScrollViewDecelerationRateFast
     }
     
-    func numberOfItemsInSection() -> Int {
+    func reloadData() {
+        collectionView?.reloadData()
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
         return 1
     }
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 10
+        return elementsToDisplay?.count ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell : LastBroadcastCell = collectionView.dequeueReusableCell(withReuseIdentifier: "LastBroadcastCell", for: indexPath) as! LastBroadcastCell
 
+//        cell.
+        
         return cell
     }
     
@@ -87,5 +109,13 @@ class LastBroadcastsDataSource: NSObject, UICollectionViewDataSource, UICollecti
         targetContentOffset.pointee = point
     }
     
+}
+
+extension LastBroadcastsDataSource: StoreSubscriber {
+    
+    func newState(state: Results<BroadcastStore>?) {
+        elementsToDisplay = state
+        reloadData()
+    }
 }
 

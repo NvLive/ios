@@ -39,6 +39,10 @@ target 'NLive' do
   # https://github.com/nickoneill/PermissionScope
   # pod 'PermissionScope', :git => 'git@github.com:nikans/PermissionScope.git', :branch => 'feature-callbacks'
   
+  # Images Loading & Caching
+  # https://github.com/kean/Nuke
+  pod 'Nuke', '~> 5.0'
+  
   
   ###########
   # STORAGE #
