@@ -152,9 +152,9 @@ extension StreamViewController: VLCMediaPlayerDelegate {
         case .opening,.buffering:
              playPause?.setTitle("Loading" , for: .normal)
         case .playing:
-            playPause?.setImage(#imageLiteral(resourceName: "play-button"), for: .normal)
-        default:
             playPause?.setImage(#imageLiteral(resourceName: "pause"), for: .normal)
+        default:
+            playPause?.setImage(#imageLiteral(resourceName: "play-button"), for: .normal)
         }
         
     }
