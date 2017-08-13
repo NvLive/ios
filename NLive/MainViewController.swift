@@ -10,4 +10,8 @@ import UIKit
 
 class MainViewController: UIViewController {
     @IBOutlet weak var streamHeightConstraint: NSLayoutConstraint!
+    
+    override open var childViewControllerForStatusBarStyle: UIViewController? {
+        return self.childViewControllers.filter { $0 is UINavigationController }.first
+    }
 }

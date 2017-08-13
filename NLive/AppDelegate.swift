@@ -30,6 +30,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     var router: AppRouter?
     var reachabilityService: ReachabilityService?
+    
+    // Overriding system fonts
+    override init() {
+        super.init()
+//        UIFont.overrideInitialize()
+    }
 }
 
 extension AppDelegate {
@@ -48,6 +54,15 @@ extension AppDelegate {
         reachabilityService = ReachabilityService(withBaseWindow: window!)
         
         configureStyle()
+        
+//        for family: String in UIFont.familyNames
+//        {
+//            print("\(family)")
+//            for names: String in UIFont.fontNames(forFamilyName: family)
+//            {
+//                print("== \(names)")
+//            }
+//        }
         
         return true
     }
@@ -94,7 +109,9 @@ extension AppDelegate {
         UINavigationBar.appearance().backgroundColor = Color.Navigation.tinted.background
 
 //        UINavigationBar.appearance().setBackgroundImage(UIImage.from(color: Color.Navigation.tinted.background), for: .default)
-        UINavigationBar.appearance().setBackgroundImage(#imageLiteral(resourceName: "navbar_bg"), for: .default)
+//        UINavigationBar.appearance().setBackgroundImage(UIImage(named: "navbar_bg")!.resizableImage(withCapInsets: UIEdgeInsets(top: 180-44/2, left: 240-375/2, bottom: 0, right: 0)), for: .default)
+        UINavigationBar.appearance().setBackgroundImage(UIImage(named: "navbar_bg")!.resizableImage(withCapInsets: UIEdgeInsets.zero, resizingMode: .stretch), for: .default)
+
         UINavigationBar.appearance().contentMode = .center
         
         UINavigationBar.appearance().shadowImage = UIImage()

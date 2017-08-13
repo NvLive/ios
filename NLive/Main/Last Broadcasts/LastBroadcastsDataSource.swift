@@ -38,15 +38,15 @@ class LastBroadcastsDataSource: NSObject, UICollectionViewDataSource, UICollecti
     
     var itemWidth: CGFloat = 0
     var itemHeight: CGFloat = 0
-    var itemSpacing: CGFloat = 10
-    var collectionMargin:CGFloat = 20.0
+    var itemSpacing: CGFloat = 8
+    var collectionMargin:CGFloat = 16
     var currentPage = 0
     
     func configurePagedLayout() {
         let layout: UICollectionViewFlowLayout = UICollectionViewFlowLayout()
         
         itemWidth =  UIScreen.main.bounds.width - collectionMargin * 2.0
-        itemHeight = itemWidth / 16 * 9 + 41
+        itemHeight = itemWidth / 16 * 9 + 64
         
         layout.sectionInset = UIEdgeInsets(top: 0, left: 0, bottom: 0, right: 0)
         layout.itemSize = CGSize(width: itemWidth, height: itemHeight)
