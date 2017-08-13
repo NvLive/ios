@@ -5,50 +5,11 @@
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Stream View Controller-->
-        <scene sceneID="n2R-5s-j1C">
-            <objects>
-                <viewController storyboardIdentifier="StreamViewController" modalPresentationStyle="overCurrentContext" useStoryboardIdentifierAsRestorationIdentifier="YES" id="Lax-mZ-pyT" customClass="StreamViewController" customModule="NLive" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="Pyg-SJ-zPg"/>
-                        <viewControllerLayoutGuide type="bottom" id="BkX-53-cif"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="rbI-F0-zRU">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="VHg-57-0My">
-                                <rect key="frame" x="304" y="6" width="30" height="30"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="play-button"/>
-                            </button>
-                        </subviews>
-                        <color key="backgroundColor" red="0.97647058819999999" green="0.47450980390000003" blue="0.054901960780000002" alpha="1" colorSpace="calibratedRGB"/>
-                        <gestureRecognizers/>
-                        <connections>
-                            <outletCollection property="gestureRecognizers" destination="5G1-AI-Adi" appends="YES" id="21Y-6c-T1M"/>
-                        </connections>
-                    </view>
-                    <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-                    <size key="freeformSize" width="375" height="500"/>
-                    <connections>
-                        <outlet property="playPause" destination="VHg-57-0My" id="atZ-cj-Ou6"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="wXd-57-3tV" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <tapGestureRecognizer id="5G1-AI-Adi">
-                    <connections>
-                        <action selector="backgroundPressWithGesture:" destination="Lax-mZ-pyT" id="CTE-oJ-GY2"/>
-                    </connections>
-                </tapGestureRecognizer>
-            </objects>
-            <point key="canvasLocation" x="-1119" y="-361"/>
-        </scene>
         <!--Main View Controller-->
         <scene sceneID="DD3-BS-HB8">
             <objects>
@@ -73,7 +34,7 @@
                                     <constraint firstAttribute="height" constant="44" id="4gX-Jg-ZGw"/>
                                 </constraints>
                                 <connections>
-                                    <segue destination="Lax-mZ-pyT" kind="embed" id="FW3-JX-tTw"/>
+                                    <segue destination="vGn-VS-hnj" kind="embed" id="FW3-JX-tTw"/>
                                 </connections>
                             </containerView>
                         </subviews>
@@ -96,7 +57,7 @@
             </objects>
             <point key="canvasLocation" x="-1972" y="53.523238380809602"/>
         </scene>
-        <!--Navigation Controller-->
+        <!--Navigation View Controller-->
         <scene sceneID="J2y-Fy-CGD">
             <objects>
                 <navigationController restorationIdentifier="NavigationViewController" storyboardIdentifier="NavigationViewController" modalPresentationStyle="overCurrentContext" id="FLP-Im-pwf" customClass="NavigationViewController" customModule="NLive" customModuleProvider="target" sceneMemberID="viewController">
@@ -362,9 +323,16 @@
             </objects>
             <point key="canvasLocation" x="-78" y="54"/>
         </scene>
+        <!--StreamViewController-->
+        <scene sceneID="asf-c6-Swz">
+            <objects>
+                <viewControllerPlaceholder storyboardIdentifier="StreamViewController" storyboardName="Stream" referencedIdentifier="StreamViewController" id="vGn-VS-hnj" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BrB-Oq-s2P" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1119" y="-361"/>
+        </scene>
     </scenes>
     <resources>
         <image name="image" width="481" height="315"/>
-        <image name="play-button" width="128" height="128"/>
     </resources>
 </document>
