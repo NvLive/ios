@@ -25,6 +25,9 @@
 		4439CB8E1F3F5AA300AD3190 /* AllShowCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4439CB8D1F3F5AA300AD3190 /* AllShowCell.swift */; };
 		4439CB8F1F3F5FA600AD3190 /* LastBroadcastsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8F70D1F3F4EEF00729CA4 /* LastBroadcastsDataSource.swift */; };
 		4439CB901F3F5FA800AD3190 /* AllShowsDataSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8F70B1F3F4EDD00729CA4 /* AllShowsDataSource.swift */; };
+		446A2B941F4014710067C124 /* StreamScrollView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 446A2B931F4014710067C124 /* StreamScrollView.swift */; };
+		446A2B961F401A250067C124 /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 446A2B951F401A250067C124 /* MediaPlayer.framework */; };
+		44B8F70F1F3F4EF800729CA4 /* MainListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8F70E1F3F4EF800729CA4 /* MainListViewController.swift */; };
 		44B8F70F1F3F4EF800729CA4 /* DashboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B8F70E1F3F4EF800729CA4 /* DashboardViewController.swift */; };
 		44DC17741F3FD9DD00C6B967 /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44DC17731F3FD9DD00C6B967 /* MainViewController.swift */; };
 		B1FD26D92EBDF15FD1DAC3D2 /* Pods_NLiveUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = DB8C95817FDA64BE4BE42B92 /* Pods_NLiveUITests.framework */; };
@@ -137,6 +140,8 @@
 		4439CB891F3F520D00AD3190 /* BroadcastStoreEntities.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BroadcastStoreEntities.swift; sourceTree = "<group>"; };
 		4439CB8B1F3F5A7C00AD3190 /* LastBroadcastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastBroadcastCell.swift; sourceTree = "<group>"; };
 		4439CB8D1F3F5AA300AD3190 /* AllShowCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllShowCell.swift; sourceTree = "<group>"; };
+		446A2B931F4014710067C124 /* StreamScrollView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamScrollView.swift; sourceTree = "<group>"; };
+		446A2B951F401A250067C124 /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
 		44B8F70B1F3F4EDD00729CA4 /* AllShowsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AllShowsDataSource.swift; sourceTree = "<group>"; };
 		44B8F70D1F3F4EEF00729CA4 /* LastBroadcastsDataSource.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LastBroadcastsDataSource.swift; sourceTree = "<group>"; };
 		44B8F70E1F3F4EF800729CA4 /* DashboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = DashboardViewController.swift; path = ../Main/DashboardViewController.swift; sourceTree = "<group>"; };
@@ -197,6 +202,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				446A2B961F401A250067C124 /* MediaPlayer.framework in Frameworks */,
 				4427B4281F3F254000774D0C /* VideoToolbox.framework in Frameworks */,
 				4427B4261F3F253400774D0C /* AVFoundation.framework in Frameworks */,
 				4427B4241F3F252800774D0C /* CoreMedia.framework in Frameworks */,
@@ -294,6 +300,7 @@
 				D0B257F51F400D91003EEC2F /* StreamState.swift */,
 				D0B257C61F3FDEEA003EEC2F /* StreamViewController.swift */,
 				D0B257C81F3FEEB0003EEC2F /* Stream.storyboard */,
+				446A2B931F4014710067C124 /* StreamScrollView.swift */,
 			);
 			path = Stream;
 			sourceTree = "<group>";
@@ -344,6 +351,7 @@
 		9BE0C44D06F0C29EBB9B76BA /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				446A2B951F401A250067C124 /* MediaPlayer.framework */,
 				4427B4271F3F254000774D0C /* VideoToolbox.framework */,
 				4427B4251F3F253400774D0C /* AVFoundation.framework */,
 				4427B4231F3F252800774D0C /* CoreMedia.framework */,
@@ -650,10 +658,9 @@
 				"${BUILT_PRODUCTS_DIR}/Realm/Realm.framework",
 				"${BUILT_PRODUCTS_DIR}/RealmSwift/RealmSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
-				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
-				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/StatusBarNotificationCenter/StatusBarNotificationCenter.framework",
+				"${BUILT_PRODUCTS_DIR}/Timepiece/Timepiece.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
@@ -668,10 +675,9 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Realm.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RealmSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/StatusBarNotificationCenter.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Timepiece.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -723,7 +729,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		8756D890E1974B427F5C17AD /* [CP] Check Pods Manifest.lock */ = {
@@ -741,7 +747,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 		94E951108DEDD47060996F18 /* [CP] Copy Pods Resources */ = {
@@ -789,7 +795,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n";
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
@@ -840,6 +846,7 @@
 				D090D6271F3FA3350007BDEC /* Response+Decodable.swift in Sources */,
 				D05B4E1A1F3F990100345D7D /* Styleguide.swift in Sources */,
 				D0B257C11F3FBE84003EEC2F /* BroadcastStoreService.swift in Sources */,
+				446A2B941F4014710067C124 /* StreamScrollView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

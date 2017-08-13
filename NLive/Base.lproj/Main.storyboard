@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cfY-QT-lbW">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="cfY-QT-lbW">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12089"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13156.2"/>
         <capability name="Aspect ratio constraints" minToolsVersion="5.1"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -62,10 +62,10 @@
             </objects>
             <point key="canvasLocation" x="-1972" y="53.523238380809602"/>
         </scene>
-        <!--Navigation View Controller-->
+        <!--Navigation Controller-->
         <scene sceneID="J2y-Fy-CGD">
             <objects>
-                <navigationController restorationIdentifier="NavigationViewController" storyboardIdentifier="NavigationViewController" modalPresentationStyle="overCurrentContext" id="FLP-Im-pwf" customClass="NavigationViewController" customModule="NLive" customModuleProvider="target" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="NavigationViewController" storyboardIdentifier="NavigationViewController" modalPresentationStyle="overCurrentContext" id="FLP-Im-pwf" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" contentMode="scaleToFill" misplaced="YES" id="1Km-1I-i6N">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -102,7 +102,7 @@
                                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ATj-ke-bEW">
                                                         <rect key="frame" x="0.0" y="0.0" width="375" height="251"/>
                                                         <subviews>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="P1y-Fj-Wxe">
+                                                            <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="P1y-Fj-Wxe">
                                                                 <rect key="frame" x="16" y="42" width="343" height="193"/>
                                                                 <gestureRecognizers/>
                                                                 <constraints>
@@ -131,7 +131,7 @@
                                                                 </constraints>
                                                             </view>
                                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Live" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rhL-sr-to6">
-                                                                <rect key="frame" x="16" y="0.0" width="52" height="30"/>
+                                                                <rect key="frame" x="16" y="0.0" width="51.5" height="30"/>
                                                                 <fontDescription key="fontDescription" type="system" weight="black" pointSize="25"/>
                                                                 <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                                 <nil key="highlightedColor"/>
@@ -393,7 +393,7 @@
                 </customObject>
                 <tapGestureRecognizer id="ISW-ge-FWg">
                     <connections>
-                        <action selector="featuredTapActionWithGesture:" destination="BYZ-38-t0r" id="src-h6-2xX"/>
+                        <action selector="featuredTapActionWithGesture:" destination="BYZ-38-t0r" id="tFF-UJ-GiY"/>
                     </connections>
                 </tapGestureRecognizer>
             </objects>

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="12121" systemVersion="16G29" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="13178.6" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -33,7 +33,7 @@
                                 <gestureRecognizers/>
                                 <connections>
                                     <outletCollection property="gestureRecognizers" destination="eqY-uj-XPL" appends="YES" id="aDJ-76-fxb"/>
-                                    <outletCollection property="gestureRecognizers" destination="AZM-E3-HLA" appends="YES" id="znM-sc-6Fs"/>
+                                    <outletCollection property="gestureRecognizers" destination="AZM-E3-HLA" appends="YES" id="Qaf-M1-2Yw"/>
                                 </connections>
                             </view>
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kov-dd-BXg">
@@ -150,14 +150,9 @@
                                             <constraint firstAttribute="width" constant="30" id="gH8-Tt-AE1"/>
                                         </constraints>
                                         <state key="normal" image="play-button"/>
-                                    </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qdC-fy-pFs">
-                                        <rect key="frame" x="329" y="12.5" width="30" height="30"/>
-                                        <constraints>
-                                            <constraint firstAttribute="height" constant="30" id="rMg-Xo-05v"/>
-                                            <constraint firstAttribute="width" constant="30" id="zgn-KT-9Wo"/>
-                                        </constraints>
-                                        <state key="normal" image="airplay"/>
+                                        <connections>
+                                            <action selector="playPausePresed" destination="Lax-mZ-pyT" eventType="touchUpInside" id="put-Pg-vTV"/>
+                                        </connections>
                                     </button>
                                     <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="image" translatesAutoresizingMaskIntoConstraints="NO" id="kj5-Gk-idt">
                                         <rect key="frame" x="8" y="8" width="40" height="40"/>
@@ -171,18 +166,39 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="airplay" translatesAutoresizingMaskIntoConstraints="NO" id="ocq-N3-dKa">
+                                        <rect key="frame" x="329" y="12.5" width="30" height="30"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="30" id="0jX-kP-LYb"/>
+                                            <constraint firstAttribute="height" constant="30" id="3Mq-7j-2yb"/>
+                                            <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="30" id="8hy-Eh-Iac"/>
+                                            <constraint firstAttribute="width" constant="30" id="Qhx-v1-ZYo"/>
+                                        </constraints>
+                                    </imageView>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="QwT-AA-EPC" customClass="MPVolumeView">
+                                        <rect key="frame" x="321" y="8" width="46" height="40"/>
+                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="qzT-cV-AVn"/>
+                                            <constraint firstAttribute="width" constant="46" id="wAk-Js-AmD"/>
+                                        </constraints>
+                                    </view>
                                 </subviews>
                                 <color key="backgroundColor" white="0.94756009620000003" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstItem="VHg-57-0My" firstAttribute="centerY" secondItem="66K-TF-EtD" secondAttribute="centerY" id="4Po-fW-kk4"/>
-                                    <constraint firstItem="qdC-fy-pFs" firstAttribute="centerY" secondItem="66K-TF-EtD" secondAttribute="centerY" id="6Ss-Gc-4bx"/>
                                     <constraint firstItem="kj5-Gk-idt" firstAttribute="top" secondItem="66K-TF-EtD" secondAttribute="top" constant="8" id="7Rh-ke-KLp"/>
+                                    <constraint firstItem="QwT-AA-EPC" firstAttribute="leading" secondItem="VHg-57-0My" secondAttribute="trailing" constant="8" id="8IR-pu-GDv"/>
+                                    <constraint firstItem="QwT-AA-EPC" firstAttribute="centerY" secondItem="VHg-57-0My" secondAttribute="centerY" id="A50-NM-xpr"/>
+                                    <constraint firstItem="ocq-N3-dKa" firstAttribute="centerY" secondItem="kj5-Gk-idt" secondAttribute="centerY" id="Caw-cZ-A7a"/>
+                                    <constraint firstItem="QwT-AA-EPC" firstAttribute="top" secondItem="66K-TF-EtD" secondAttribute="top" constant="8" id="HK2-wY-Qg2"/>
                                     <constraint firstItem="nU5-SZ-rV3" firstAttribute="leading" secondItem="kj5-Gk-idt" secondAttribute="trailing" constant="8" id="JjZ-3Z-wsD"/>
-                                    <constraint firstItem="qdC-fy-pFs" firstAttribute="leading" secondItem="VHg-57-0My" secondAttribute="trailing" constant="16" id="b5p-6U-xO7"/>
+                                    <constraint firstAttribute="bottom" secondItem="QwT-AA-EPC" secondAttribute="bottom" constant="8" id="RX7-OQ-yJh"/>
+                                    <constraint firstAttribute="trailing" secondItem="QwT-AA-EPC" secondAttribute="trailing" constant="8" id="Xuc-h0-EfK"/>
+                                    <constraint firstAttribute="trailing" secondItem="ocq-N3-dKa" secondAttribute="trailing" constant="16" id="Ya1-My-FtG"/>
                                     <constraint firstAttribute="bottom" secondItem="kj5-Gk-idt" secondAttribute="bottom" constant="8" id="h8E-XZ-jRK"/>
                                     <constraint firstItem="nU5-SZ-rV3" firstAttribute="centerY" secondItem="66K-TF-EtD" secondAttribute="centerY" id="hAU-GZ-Yzq"/>
                                     <constraint firstAttribute="height" constant="56" id="iph-ei-9Kv"/>
-                                    <constraint firstAttribute="trailing" secondItem="qdC-fy-pFs" secondAttribute="trailing" constant="16" id="opQ-go-mKC"/>
                                     <constraint firstItem="kj5-Gk-idt" firstAttribute="leading" secondItem="66K-TF-EtD" secondAttribute="leading" constant="8" id="p4F-56-nzo"/>
                                 </constraints>
                                 <connections>
@@ -209,9 +225,12 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="500"/>
                     <connections>
+                        <outlet property="boradcastTitle" destination="nU5-SZ-rV3" id="xIv-R3-rwA"/>
+                        <outlet property="broadcastImage" destination="kj5-Gk-idt" id="ubd-af-1Y2"/>
                         <outlet property="fadeView" destination="DEN-Ux-3df" id="fxL-fx-eet"/>
                         <outlet property="playPause" destination="VHg-57-0My" id="atZ-cj-Ou6"/>
                         <outlet property="smallView" destination="66K-TF-EtD" id="YuQ-c0-ZEa"/>
+                        <outlet property="volumeView" destination="QwT-AA-EPC" id="MCt-vb-Bp0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wXd-57-3tV" userLabel="First Responder" sceneMemberID="firstResponder"/>

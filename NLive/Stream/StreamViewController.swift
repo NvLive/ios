@@ -10,16 +10,37 @@ import Foundation
 import UIKit
 import ReSwift
 import RealmSwift
+import MediaPlayer
+import Nuke
 
 class StreamViewController: UIViewController {
     @IBOutlet weak var fadeView: UIView!
     @IBOutlet weak var smallView: UIView!
+    @IBOutlet weak var volumeView: MPVolumeView!
+    
+    @IBOutlet weak var broadcastImage: UIImageView!
+    @IBOutlet weak var boradcastTitle: UILabel!
+    @IBOutlet weak var playPause: UIButton? = nil
     
     var mainViewController: MainViewController? {
         return self.parent as? MainViewController
     }
     
-    var activeBroadcast: BroadcastStore? = nil
+    var activeBroadcast: BroadcastStore? = nil {
+        didSet{
+            if let imageUrlString = activeBroadcast?.show.first?.placeholderImageUrlString,
+                let imageUrl = URL(string: imageUrlString) {
+                Nuke.loadImage(with: imageUrl, into: broadcastImage)
+            }
+            boradcastTitle.text = activeBroadcast?.title ?? ""
+            if let streamUrlString = activeBroadcast?.streamUrlString,
+                let streamUrl = URL(string: streamUrlString) {
+                let media = VLCMedia(url: streamUrl)
+                vlcPlayer.media = media
+                vlcPlayer.play()
+            }
+        }
+    }
     
     let miniStateSize: CGFloat = 56
     
@@ -52,15 +73,16 @@ class StreamViewController: UIViewController {
     }
     
 
-    @IBOutlet weak var playPause: UIButton? = nil
+    
     let vlcPlayer = VLCMediaPlayer(options: [])!
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        volumeView.showsVolumeSlider = false
+        volumeView.showsRouteButton = true        
+        volumeView.setRouteButtonImage(nil, for: .normal)
         
         vlcPlayer.delegate = self
-        let media = VLCMedia(url: URL(string: "rtmp://194.177.20.219:1935/webcam/fbk_office")!)
-        vlcPlayer.media = media
         
         store.subscribe(self) { subcription in
             subcription.select { state in state.streamState }
