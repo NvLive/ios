@@ -143,6 +143,11 @@ class StreamViewController: UIViewController {
         vlcPlayer.play()
     }
     
+    func pause() {
+        guard vlcPlayer.isPlaying == true else { return }
+        vlcPlayer.pause()
+    }
+    
     func stop() {
         vlcPlayer.stop()
     }
@@ -207,6 +212,15 @@ extension StreamViewController: StoreSubscriber {
         case .none:
             playPause?.setImage(#imageLiteral(resourceName: "play-button"), for: .normal)
             changeMusicBoxState(to: .none, animated: true)
+        }
+        
+        switch state.userRequestedState {
+        case .play:
+            play()
+        case .pause:
+            pause()
+        case .none:
+            break
         }
     }
 }

@@ -64,6 +64,7 @@ class DashboardViewController: UIViewController {
     @IBAction func featuredTapActionWithGesture(_ sender: Any) {
         if let broadcast = self.featuredBroadcast {
             store.dispatch(StreamAction.activate(broadcast: broadcast))
+            store.dispatch(StreamAction.play)
         }
     }
     

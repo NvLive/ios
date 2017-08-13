@@ -25,8 +25,12 @@ class ShowViewController: UIViewController, UICollectionViewDataSource, UICollec
         if let show = show {
             configure(withShow: show)
         }
+        let itemWidth =  UIScreen.main.bounds.width - 20 * 2.0
+        let itemHeight = itemWidth / 16 * 9 + 37
+        (collectionView.collectionViewLayout as? UICollectionViewFlowLayout)?.itemSize = CGSize(width: itemWidth, height: itemHeight)
         
         scrollView.contentInset.bottom = 60
+        reloadData()
     }
     
     var show: ShowStore? = nil
