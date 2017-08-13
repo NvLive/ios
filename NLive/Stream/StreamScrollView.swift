@@ -8,12 +8,20 @@
 
 import UIKit
 
-class StreamScrollView: UIScrollView {
+class StreamScrollView: UIScrollView, UIGestureRecognizerDelegate {
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRecognizeSimultaneouslyWith otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return true
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldBeRequiredToFailBy otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return false
+    }
+    
+    func gestureRecognizer(_ gestureRecognizer: UIGestureRecognizer, shouldRequireFailureOf otherGestureRecognizer: UIGestureRecognizer) -> Bool {
+        return false
+    }
     
     override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        if let pan = gestureRecognizer as? UIPanGestureRecognizer, contentOffset.y <= 0 && pan.translation(in: self).y > 0 {
-            return false
-        }
-        return super.gestureRecognizerShouldBegin(gestureRecognizer)
+        return true
     }
 }

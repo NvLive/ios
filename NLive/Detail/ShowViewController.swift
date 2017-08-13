@@ -9,11 +9,13 @@
 import UIKit
 import Nuke
 
-class ShowViewController: UIViewController {
+class ShowViewController: UIViewController, UICollectionViewDataSource, UICollectionViewDelegate {
 
     @IBOutlet weak var imageView: UIImageView!
     @IBOutlet weak var titleLabel: UILabel!
     @IBOutlet weak var descriptionLabel: UILabel!
+    @IBOutlet weak var collectionHeight: NSLayoutConstraint!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     @IBOutlet weak var scrollView: UIScrollView!
     
@@ -41,6 +43,11 @@ class ShowViewController: UIViewController {
         titleLabel.text = show.title
         descriptionLabel.text = show.descriptionString
     }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
@@ -51,14 +58,41 @@ class ShowViewController: UIViewController {
         return .lightContent
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destinationViewController.
-        // Pass the selected object to the new view controller.
+    func reloadData() {
+        guard collectionView != nil else { return }
+        
+        collectionView?.isScrollEnabled = false
+        collectionView?.reloadData()
+        collectionView?.layoutIfNeeded()
+        collectionHeight.constant = collectionView?.contentSize.height ?? 0
+        collectionView?.layoutIfNeeded()
     }
-    */
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return 1
+    }
 
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return show?.broadcasts.count ?? 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell : LastBroadcastCell = collectionView.dequeueReusableCell(withReuseIdentifier: "LastBroadcastCell", for: indexPath) as! LastBroadcastCell
+        
+        let broadcast = show?.broadcasts[indexPath.item]
+        
+        cell.broadcastTitleLabel.text = broadcast?.title
+        cell.createTimeLabel.text = broadcast?.startDate.timeString(in: .short)
+        
+        cell.broadcastImage.image = nil
+        
+        let imageUrlString = broadcast?.placeholderImageUrlString ?? broadcast?.show.first?.placeholderImageUrlString
+        
+        if  let imageUrlString = imageUrlString,
+            let imageUrl = URL(string: imageUrlString) {
+            Nuke.loadImage(with: imageUrl, into: cell.broadcastImage)
+        }
+    
+        return cell
+    }
 }
