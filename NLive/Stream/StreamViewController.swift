@@ -10,11 +10,16 @@ import Foundation
 import UIKit
 
 class StreamViewController: UIViewController {
+    @IBOutlet weak var fadeView: UIView!
+    @IBOutlet weak var smallView: UIView!
+    
     var mainViewController: MainViewController? {
         return self.parent as? MainViewController
     }
     
-    let miniStateSize: CGFloat = 44
+    
+    
+    let miniStateSize: CGFloat = 56
     
     enum State {
         case mini
@@ -28,17 +33,19 @@ class StreamViewController: UIViewController {
     }
     
     func reloadState(animated: Bool) {
-        UIView.animate(withDuration: animated ? 0.25 : 0) {[weak self] in
+        UIView.animate(withDuration: animated ? 0.35 : 0) {[weak self] in
             guard let `self` = self else { return }
-            UIView.animate(withDuration: 0.25) {
-                switch(self.state) {
-                case .mini:
-                    self.mainViewController?.streamHeightConstraint.constant = self.miniStateSize
-                case .full:
-                     self.mainViewController?.streamHeightConstraint.constant = UIScreen.main.bounds.height - 40
-                }
-                self.mainViewController?.view.layoutIfNeeded()
+            switch(self.state) {
+            case .mini:
+                self.mainViewController?.streamHeightConstraint.constant = self.miniStateSize
+                self.fadeView.alpha = 0
+                self.smallView.alpha = 1
+            case .full:
+                self.mainViewController?.streamHeightConstraint.constant = UIScreen.main.bounds.height
+                self.fadeView.alpha = 1
+                self.smallView.alpha = 0
             }
+            self.mainViewController?.view.layoutIfNeeded()
         }
     }
     
@@ -68,6 +75,37 @@ class StreamViewController: UIViewController {
         if state == .mini {
             state = .full
         }
+    }
+    
+    @IBAction func fadePress(gesture: UITapGestureRecognizer) {
+        if state == .full {
+            state = .mini
+        }
+    }
+    
+    @IBAction func panHandler(gesture: UIPanGestureRecognizer) {
+        switch(gesture.state) {
+        case .changed, .began:
+            let translation = gesture.translation(in: self.view)
+            var newValue = self.mainViewController?.streamHeightConstraint.constant ?? 0
+            newValue -= translation.y
+            if newValue < UIScreen.main.bounds.height / 2 {
+                state = .mini
+                gesture.isEnabled = false
+                gesture.isEnabled = true
+            }
+            else {
+                self.mainViewController?.streamHeightConstraint.constant = min(newValue, UIScreen.main.bounds.height)
+            }
+            gesture.setTranslation(.zero, in: self.view)
+        case .ended:
+            state = .full
+            gesture.isEnabled = false
+            gesture.isEnabled = true
+        default:
+            ()
+        }
+        
     }
 }
 
