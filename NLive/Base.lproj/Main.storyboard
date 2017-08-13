@@ -599,6 +599,9 @@
                                                 <constraints>
                                                     <constraint firstAttribute="width" secondItem="Dkd-jJ-Agk" secondAttribute="height" multiplier="16:9" id="VJV-SR-zf8"/>
                                                 </constraints>
+                                                <connections>
+                                                    <outletCollection property="gestureRecognizers" destination="ciE-25-GjO" appends="YES" id="WSF-s3-Ffx"/>
+                                                </connections>
                                             </imageView>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Кактус" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XiY-by-aIJ">
                                                 <rect key="frame" x="16" y="363.5" width="94" height="30"/>
@@ -717,6 +720,11 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wQH-FA-ski" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="ciE-25-GjO">
+                    <connections>
+                        <action selector="imageViewPressedWithGesture:" destination="h5q-4j-xyo" id="nay-FB-j5S"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="759" y="-232"/>
         </scene>

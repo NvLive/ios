@@ -86,7 +86,7 @@ class ShowViewController: UIViewController, UICollectionViewDataSource, UICollec
         let broadcast = show?.broadcasts[indexPath.item]
         
         cell.broadcastTitleLabel.text = broadcast?.title
-        cell.createTimeLabel.text = broadcast?.startDate.stringIn(dateStyle: .short, timeStyle: .short)
+        cell.createTimeLabel.text = broadcast?.startDate.timeAgoSinceNow
         
         cell.broadcastImage.image = nil
         

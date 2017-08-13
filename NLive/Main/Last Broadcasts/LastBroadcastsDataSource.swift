@@ -11,7 +11,6 @@ import UIKit
 import ReSwift
 import RealmSwift
 import Nuke
-import Timepiece
 
 protocol LastBroadcastsDelegate: class {
     func navigateTo(broadcast: BroadcastStore)
@@ -79,7 +78,7 @@ class LastBroadcastsDataSource: NSObject, UICollectionViewDataSource, UICollecti
         let broadcast = elementsToDisplay?[indexPath.item]
         
         cell.broadcastTitleLabel.text = broadcast?.title
-        cell.createTimeLabel.text = broadcast?.startDate.timeString(in: .short)
+        cell.createTimeLabel.text = broadcast?.startDate.timeAgoSinceNow
         
         cell.broadcastImage.image = nil
         
