@@ -30,7 +30,7 @@
                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Kov-dd-BXg">
                                 <rect key="frame" x="0.0" y="0.0" width="375" height="510"/>
                                 <subviews>
-                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Nn-mw-UwG" customClass="StreamScrollView" customModule="NLive" customModuleProvider="target">
+                                    <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" bounces="NO" scrollEnabled="NO" bouncesZoom="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Nn-mw-UwG" customClass="StreamScrollView" customModule="NLive" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="500"/>
                                         <subviews>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uKm-3b-7Po">
@@ -139,7 +139,7 @@
                                                     <constraint firstItem="dfq-7y-Xg2" firstAttribute="top" secondItem="KeT-X1-K9R" secondAttribute="bottom" constant="8" id="yjp-DU-a21"/>
                                                 </constraints>
                                                 <connections>
-                                                    <outletCollection property="gestureRecognizers" destination="AZM-E3-HLA" appends="YES" id="Dte-gJ-8Qr"/>
+                                                    <outletCollection property="gestureRecognizers" destination="AZM-E3-HLA" appends="YES" id="KPr-nH-OaJ"/>
                                                 </connections>
                                             </view>
                                         </subviews>

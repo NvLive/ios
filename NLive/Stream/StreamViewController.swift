@@ -155,7 +155,7 @@ class StreamViewController: UIViewController {
         
         changeMusicBoxState(to: activeBroadcast != nil ? .mini : .none, animated: false)
         
-        self.mainViewController?.fadeView.addGestureRecognizer(panGesture)
+//        self.mainViewController?.fadeView.addGestureRecognizer(panGesture)
         self.mainViewController?.fadeView.addGestureRecognizer(tapGesture)
     }
     
