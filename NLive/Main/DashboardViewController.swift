@@ -10,7 +10,7 @@ import UIKit
 import ReSwift
 import RealmSwift
 import Nuke
-import Timepiece
+import DateToolsSwift
 
 class DashboardViewController: UIViewController {
     
@@ -53,7 +53,7 @@ class DashboardViewController: UIViewController {
             }
             
             promoTitleLabel.text = featuredBroadcast!.title
-            promoCreateTimeLabel.text = featuredBroadcast!.startDate.timeString(in: .short)
+            promoCreateTimeLabel.text = featuredBroadcast!.startDate.timeAgoSinceNow
             
             promoHeaderLabel.text = featuredBroadcast!.isLive ? "Live" : "Рекомендуем"
         }

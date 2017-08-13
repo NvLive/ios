@@ -85,7 +85,7 @@ target 'NLive' do
   # pod 'GTAlertBar' #, '~> 1.0.3'
   
   # https://github.com/naoty/Timepiece
-  pod 'Timepiece', '~> 1.2.0'
+  pod 'DateToolsSwift'
   
   # https://github.com/pkluz/PKHUD
   pod 'PKHUD', '~> 4.2'
