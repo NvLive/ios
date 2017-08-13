@@ -15,6 +15,7 @@ import Timepiece
 
 protocol LastBroadcastsDelegate: class {
     func navigateTo(broadcast: BroadcastStore)
+    var ignoreBroadcastsWithIds: [Int] { get }
 }
 
 class LastBroadcastsDataSource: NSObject, UICollectionViewDataSource, UICollectionViewDelegate {
@@ -134,7 +135,11 @@ class LastBroadcastsDataSource: NSObject, UICollectionViewDataSource, UICollecti
 extension LastBroadcastsDataSource: StoreSubscriber {
     
     func newState(state: Results<BroadcastStore>?) {
-        elementsToDisplay = state
+        var broadcasts = state
+        if let ignore = delegate?.ignoreBroadcastsWithIds {
+            broadcasts = broadcasts?.filter("id IN %@", ignore)
+        }
+        elementsToDisplay = broadcasts
         reloadData()
     }
 }

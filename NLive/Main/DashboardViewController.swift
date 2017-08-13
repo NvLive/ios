@@ -16,6 +16,8 @@ class DashboardViewController: UIViewController {
     
     @IBOutlet weak var stackView: UIStackView!
     
+    @IBOutlet weak var promoHeaderLabel: UILabel!
+    
     @IBOutlet var promoView: UIView!
     @IBOutlet weak var promoBroadcastView: UIImageView!
     @IBOutlet weak var promoTitleLabel: UILabel!
@@ -52,6 +54,8 @@ class DashboardViewController: UIViewController {
             
             promoTitleLabel.text = featuredBroadcast!.title
             promoCreateTimeLabel.text = featuredBroadcast!.startDate.timeString(in: .short)
+            
+            promoHeaderLabel.text = featuredBroadcast!.isLive ? "Live" : "Рекомендуем"
         }
     }
     private var isFeaturedDisplayed = true
@@ -117,5 +121,12 @@ extension DashboardViewController: AllShowsDelegate {
 extension DashboardViewController: LastBroadcastsDelegate {
     func navigateTo(broadcast: BroadcastStore) {
         performSegue(withIdentifier: "BROADCAST_DETAIL_SEGUE", sender: broadcast)
+    }
+    
+    var ignoreBroadcastsWithIds: [Int] {
+        if let id = featuredBroadcast?.id {
+            return [id]
+        }
+        return []
     }
 }

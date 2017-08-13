@@ -375,7 +375,8 @@
                         <outlet property="lastBroadcastsCollection" destination="IIu-hc-6x8" id="nzG-e3-DcQ"/>
                         <outlet property="promoBroadcastView" destination="P1y-Fj-Wxe" id="SVx-Nw-Vcj"/>
                         <outlet property="promoCreateTimeLabel" destination="pdG-fW-hK3" id="O7W-jR-ZvT"/>
-                        <outlet property="promoTitleLabel" destination="eVd-GV-j5G" id="QsD-FO-H6Q"/>
+                        <outlet property="promoHeaderLabel" destination="rhL-sr-to6" id="Uhy-Bx-i9Q"/>
+                        <outlet property="promoTitleLabel" destination="eVd-GV-j5G" id="bAC-A5-wxw"/>
                         <outlet property="promoView" destination="ATj-ke-bEW" id="ysm-LU-cWl"/>
                         <outlet property="scrollView" destination="WzD-ib-H8P" id="CmZ-oR-353"/>
                         <outlet property="stackView" destination="MJW-KX-v7l" id="xst-eK-3fh"/>
