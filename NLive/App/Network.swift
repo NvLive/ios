@@ -18,8 +18,8 @@ enum NetworkError: Swift.Error {
 }
 
 struct NetworkParameters {
-    static let baseApiUrl = URL(string: "http://194.177.20.219/api/v1")!
-    static let baseReachabilityHostname = "194.177.20.219"
+    static let baseApiUrl = URL(string: "http://185.22.63.186/api/v1")!
+    static let baseReachabilityHostname = "185.22.63.186"
     
 //    static let baseApiUrl = URL(string: "http://util.nikans.com/navalny-live/api/v1")!
 //    static let baseReachabilityHostname = "nikans.com"
